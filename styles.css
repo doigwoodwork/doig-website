@@ -1354,7 +1354,10 @@ button {
   .style-image-grid { grid-template-columns: 1fr; }
   .style-thumbs-col { display: flex; flex-direction: row; gap: 8px; overflow-x: auto; }
   .style-thumbs-col button { flex-shrink: 0; width: 64px; height: 64px; aspect-ratio: 1/1; }
-  .payment-schedule-row { grid-template-columns: 72px 1fr; padding: 16px; gap: 12px; }
+  .payment-schedule-row { grid-template-columns: 1fr; padding: 16px; gap: 4px; }
+  .payment-schedule-pct { font-size: 40px; line-height: 1; }
+  .payment-method-row { grid-template-columns: 40px 1fr; }
+  .payment-method-badge { display: none; }
 }
 @media (min-width: 769px) {
   .show-mobile { display: none; }

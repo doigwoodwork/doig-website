@@ -67,7 +67,7 @@ function ProcesoPage() {
                     borderBottom: i < arr.length - 1 ? '1px solid var(--line)' : 'none',
                     background: 'white',
                   }}>
-                    <div className="display" style={{ fontSize: 56, lineHeight: 0.95, fontStyle: 'italic', color: 'var(--walnut)' }}>{s.n}</div>
+                    <div className="display payment-schedule-pct" style={{ fontSize: 56, lineHeight: 0.95, fontStyle: 'italic', color: 'var(--walnut)' }}>{s.n}</div>
                     <div>
                       <div className="mono" style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)', marginBottom: 4 }}>{s.k}</div>
                       <div style={{ fontSize: 13, color: 'var(--ink-60)', lineHeight: 1.45 }}>{s.d}</div>
@@ -124,7 +124,7 @@ function ProcesoPage() {
                     ),
                   },
                 ].map((m, i) => (
-                  <div key={i} style={{
+                  <div key={i} className="payment-method-row" style={{
                     display: 'grid',
                     gridTemplateColumns: '56px 1fr auto',
                     alignItems: 'center',
@@ -139,7 +139,7 @@ function ProcesoPage() {
                       <div className="display-s" style={{ fontSize: 22, margin: 0, lineHeight: 1.1 }}>{m.k}</div>
                       <div style={{ fontSize: 13, color: m.highlight ? 'rgba(250,246,240,0.7)' : 'var(--ink-60)', marginTop: 2 }}>{m.d}</div>
                     </div>
-                    <span className="mono" style={{
+                    <span className="mono payment-method-badge" style={{
                       fontSize: 10,
                       textTransform: 'uppercase',
                       letterSpacing: '0.1em',
