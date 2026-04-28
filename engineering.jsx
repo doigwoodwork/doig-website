@@ -17,9 +17,9 @@ const ENG_COPY = {
     ],
     standards: [
       { k: 'Estructura', v: 'Triplay Birch ¾"' },
-      { k: 'Herraje base', v: 'Triplay Birch ¾"' },
-      { k: 'Ensamble', v: 'Triplay Birch ¾"' },
-      { k: 'Garantía', v: 'Triplay Birch ¾"' },
+      { k: 'Herrajes', v: 'Rieles y bisagras de cierre lento' },
+      { k: 'Ensamble', v: 'Con tornillo oculto, sin grapas' },
+      { k: 'Garantía', v: 'En fabricación, instalación y herrajes' },
     ],
   },
   en: {

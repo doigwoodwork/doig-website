@@ -1358,6 +1358,8 @@ button {
   .payment-schedule-pct { font-size: 40px; line-height: 1; }
   .payment-method-row { grid-template-columns: 40px 1fr; }
   .payment-method-badge { display: none; }
+  .eng-grid { display: flex !important; flex-direction: column !important; }
+  .eng-standards { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
 }
 @media (min-width: 769px) {
   .show-mobile { display: none; }
