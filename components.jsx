@@ -134,7 +134,7 @@ function Footer() {
             <h4>Contacto</h4>
             <ul>
               <li><a href="tel:+526644987845">+52 664 498 7845</a></li>
-              <li><a href="mailto:hola@doigwoodwork.com">hola@doigwoodwork.com</a></li>
+              <li><a href="mailto:doigwoodwork@gmail.com">doigwoodwork@gmail.com</a></li>
               <li><a href="https://wa.me/526644987845" target="_blank">WhatsApp</a></li>
             </ul>
           </div>

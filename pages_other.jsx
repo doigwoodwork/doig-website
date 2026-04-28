@@ -240,7 +240,7 @@ function ContactoPage() {
                 </div>
                 <div>
                   <div className="mono" style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-60)' }}>Email</div>
-                  <a href="mailto:hola@doigwoodwork.com" style={{ fontSize: 15 }}>hola@doigwoodwork.com</a>
+                  <a href="mailto:doigwoodwork@gmail.com" style={{ fontSize: 15 }}>doigwoodwork@gmail.com</a>
                 </div>
                 <div>
                   <div className="mono" style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-60)' }}>Taller</div>
