@@ -1,0 +1,269 @@
+// data.jsx — content for the prototype (ES + EN)
+
+// Unsplash kitchen photos — placeholder until real Doig photos land
+const PHOTOS = {
+  hero: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1400&q=80&auto=format&fit=crop',
+  kitchen1: 'https://images.unsplash.com/photo-1556909114-44e3e9399a2e?w=1200&q=80&auto=format&fit=crop',
+  kitchen2: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80&auto=format&fit=crop',
+  kitchen3: 'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=1200&q=80&auto=format&fit=crop',
+  kitchen4: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=1200&q=80&auto=format&fit=crop',
+  kitchen5: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80&auto=format&fit=crop',
+  kitchen6: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80&auto=format&fit=crop',
+  workshop1: 'https://images.unsplash.com/photo-1601048142503-2f26a9a7db62?w=1200&q=80&auto=format&fit=crop',
+  detail1: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=1000&q=80&auto=format&fit=crop',
+  detail2: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1000&q=80&auto=format&fit=crop',
+  detail3: 'https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=1000&q=80&auto=format&fit=crop',
+  detail4: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1000&q=80&auto=format&fit=crop',
+};
+
+// Content dictionary — ES first, EN second
+const COPY = {
+  es: {
+    tagline: 'cocinas bien hechas',
+    nav: {
+      home: 'Inicio',
+      cocinas: 'Inicio',
+      proceso: 'Proceso',
+      testimonios: 'Testimonios',
+      faq: 'Preguntas',
+      contacto: 'Cotización',
+    },
+    hero: {
+      eyebrow: 'Est. 2019 · Tijuana, B.C.',
+      line1: 'Cocinas',
+      line2: 'bien',
+      line3: 'hechas',
+      sub: 'Diseño, fabricación e instalación de cocinas a la medida. Un proceso comprobado para un resultado impecable — desde la primera visita hasta la entrega final.',
+      primary: 'Cotiza por WhatsApp',
+      secondary: 'Ver proceso',
+    },
+    manifesto: {
+      eyebrow: '— Qué hacemos',
+      headline: (
+        <>Un programa especializado en cocinas.</>
+      ),
+      body: 'Doig Woodwork es un programa comprobado para lograr una cocina a la medida. Diseño integral, fabricación en taller con materiales de calidad, e instalación profesional. Todo de inicio a fin, con una sola empresa.',
+      stats: [
+        { n: '+ de 500', l: 'Cocinas entregadas' },
+        { n: '+ de 10 años', l: 'De experiencia' },
+        { n: '5', l: 'Fases de proceso' },
+        { n: '30/30/30/10', l: 'Plan de pagos' },
+      ],
+    },
+    tiersIntro: {
+      eyebrow: '— Niveles',
+      headline: 'Desde casa de renta hasta la cocina de tus sueños.',
+      body: 'Tres niveles para adaptarnos a tu proyecto, presupuesto y nivel de detalle. Todos con los mismos estándares de fabricación.',
+    },
+    tiers: [
+      {
+        label: 'Cocina A',
+        name: 'Esencial',
+        desc: 'Melamina de calidad, diseño liso, herrajes de cierre lento. Ideal para departamentos de renta o primera casa.',
+        features: ['1 revisión de diseño', 'Frentes en melamina Arauco o Vesto', 'Bisagras y rieles de cierre lento', 'Instalación en 2 días', 'Garantía de 1 año'],
+        price: 'Desde $85,000 MXN',
+      },
+      {
+        label: 'Cocina AA',
+        name: 'Distinguida',
+        desc: 'Combinaciones de materiales, más funcionalidades, acabados premium. El nivel más elegido.',
+        features: ['Hasta 2 revisiones de diseño', 'Melamina premium o madera', 'Opciones mixtas de acabado', 'Herrajes avanzados disponibles', 'Garantía de 1 año'],
+        price: 'Desde $180,000 MXN',
+        featured: true,
+      },
+      {
+        label: 'Cocina AAA',
+        name: 'A la medida',
+        desc: 'Acompañamiento completo, madera de alta gama, detalles a la carta. Para casas de diseño y clientes exigentes.',
+        features: ['Acompañamiento completo', 'Maderas finas — Nogal, Encino', 'Herrajes Blum bajo petición', 'Iluminación integrada', 'Lambrín y puertas con cristal'],
+        price: 'Desde $350,000 MXN',
+      },
+    ],
+    proceso: {
+      eyebrow: '— Cómo trabajamos',
+      headline: 'Un proceso en 5 fases.',
+      body: 'Cada fase tiene entregables claros y momentos de aprobación. Así sabes exactamente dónde está tu proyecto.',
+      phases: [
+        { n: '01', title: 'Cotización Preliminar', body: 'Para cotizar tenemos 2 opciones: visita a domicilio, o visita en nuestras oficinas. Contáctanos por WhatsApp para agendar tu cita. Al final de cada cita te entregamos cotización.', deliverable: 'Cotización base' },
+        { n: '02', title: 'Diseño Integral', body: 'Al firmar y cubrir anticipo, asignamos arquitecto para tomar medidas precisas, especificaciones de electrodomésticos, y para crear render y planos de fabricación. El cliente firma antes de pasar a producción.', deliverable: 'Render + planos' },
+        { n: '03', title: 'Fabricación & Acabados', body: 'Con proyecto firmado continuamos a fabricación. No se aceptan cambios en esta fase. Todos los muebles son terminados antes de pasar a instalación.', deliverable: 'Muebles calibrados' },
+        { n: '04', title: 'Envío', body: 'Proyecto local: entrega directa. Proyectos no locales: cotización de envío protegido. Todo embalado para llegar en perfectas condiciones.', deliverable: 'Logística' },
+        { n: '05', title: 'Instalación', body: 'Contamos con servicio de instalación en Tijuana, para otras ciudades enviamos los muebles listos para instalación sencilla y rápida.', deliverable: 'Entrega final' },
+      ],
+    },
+    materials: {
+      eyebrow: '— Estilos & acabados',
+      headline: 'Maderas, melaminas y tintas.',
+      body: 'Los frentes visten tu cocina. Elegimos materiales por durabilidad, apariencia y presupuesto — desde melaminas resistentes hasta madera sólida con entintado a la medida.',
+    },
+    gallery: {
+      eyebrow: '— Proyectos',
+      headline: 'Cocinas recientes.',
+      body: 'Algunos de los proyectos que hemos terminado para nuestros clientes. Cada uno con sus propias decisiones de estilo, acabado y funcionalidad.',
+      cta: 'Ver todas',
+    },
+    cta: {
+      eyebrow: '— Siguiente paso',
+      headline: 'Agenda una visita.',
+      body: 'Sin compromiso. Vamos, medimos, escuchamos, y te entregamos cotización para tu cocina.',
+      primary: 'Escribir por WhatsApp',
+      secondary: 'Agendar llamada',
+    },
+    contact: {
+      title: 'Cuéntanos sobre tu proyecto',
+      sub: 'Te respondemos en menos de 24 horas. Si prefieres WhatsApp, podemos empezar ahí.',
+      fields: {
+        name: 'Nombre',
+        email: 'Correo',
+        phone: 'Teléfono',
+        city: 'Ciudad',
+        tier: '¿Qué nivel estás considerando?',
+        size: 'Tamaño aproximado',
+        msg: 'Cuéntanos más',
+      },
+      chips: ['Cocina A', 'Cocina AA', 'Cocina AAA', 'No sé todavía'],
+      submit: 'Enviar solicitud',
+      or: 'o',
+    },
+    faq: {
+      eyebrow: '— Preguntas frecuentes',
+      headline: 'Lo que nos preguntan seguido.',
+      items: [
+        { q: '¿Cuánto tiempo toma un proyecto completo?', a: 'Desde la cotización preliminar hasta la instalación final, una Cocina A toma entre 6 y 8 semanas. Una Cocina AA entre 8 y 12 semanas. Una Cocina AAA puede tomar de 12 a 20 semanas según complejidad y materiales.' },
+        { q: '¿Trabajan en San Diego o solo en Tijuana?', a: 'Sí, trabajamos en ambos lados de la frontera. Nuestro taller está en Tijuana, y atendemos proyectos en San Diego, Tecate, Rosarito y Ensenada. Para proyectos no locales cotizamos envío protegido.' },
+        { q: '¿Puedo pagar en mensualidades?', a: 'Además del plan base 30/30/30/10, contamos con un programa de pagos de 6 a 9 meses dependiendo del tamaño del proyecto. Pregúntanos durante la cotización.' },
+        { q: '¿Qué materiales usan para los gabinetes?', a: 'Para la estructura usamos Triplay Birch de 3/4" con sellado transparente — resistente a olores y humedad. Para frentes, melaminas Arauco y Vesto, o maderas como Birch, Encino y Nogal según el nivel.' },
+        { q: '¿Los herrajes son nuevos?', a: 'Todos los herrajes se instalan 100% nuevos. Incluimos bisagras y rieles de cierre lento en todos los trabajos. Herrajes Blum y mecanismos push disponibles bajo petición.' },
+        { q: '¿Puedo ver el taller?', a: 'Sí, agendamos visitas al taller durante el proceso de diseño. Es una práctica que nuestros clientes valoran mucho — ver dónde y cómo se fabrica tu cocina.' },
+        { q: '¿Qué garantía ofrecen?', a: 'Servicio gratuito de 1 año sobre estabilidad, daños de pintura y fallas de herrajes. La política completa de garantías se entrega como anexo en la cotización.' },
+      ],
+    },
+    testimonios: {
+      eyebrow: '— Lo que dicen',
+      headline: 'Clientes que volvieron por más.',
+      list: [
+        {
+          quote: 'Nos convenció la atención al cliente, el contenido en sus redes sociales, la formalidad en la programación de citas por correo, la entrega de comprobantes de pago, y poder acudir a su taller y conocer el proceso.',
+          author: 'Carolina M.',
+          project: 'Cocina Liso Moderno · Tijuana',
+          img: 'images/testimonial-carolina.jpg',
+        },
+        {
+          quote: '¡Qué belleza! Quedamos muy contentos con el resultado final. Pronto nos comunicaremos para continuar con los closets y otros trabajos. Muchas gracias.',
+          author: 'Vanessa L.',
+          project: 'Cocina Liso Moderno Nogal · Rosarito',
+          img: 'images/testimonial-vanessa.jpg',
+        },
+        {
+          quote: 'El proceso fue transparente desde el primer día. Las fases, los pagos, los tiempos — todo documentado. Es la primera vez que trabajo con un carpintero que realmente es una empresa.',
+          author: 'Roberto D.',
+          project: 'Cocina Liso Moderno · Tijuana',
+          img: 'images/testimonial-roberto.jpg',
+        },
+      ],
+    },
+  },
+
+  en: {
+    tagline: 'well-made kitchens',
+    nav: { home: 'Home', cocinas: 'Kitchens', proceso: 'Process', testimonios: 'Reviews', faq: 'FAQ', contacto: 'Quote' },
+    hero: {
+      eyebrow: 'Est. 2019 · Tijuana, B.C.',
+      line1: 'Well',
+      line2: 'made',
+      line3: 'kitchens.',
+      sub: 'Design, build and install of custom kitchens. A proven process for a flawless result — from the first site visit to the final walkthrough.',
+      primary: 'Quote on WhatsApp',
+      secondary: 'See process',
+    },
+    manifesto: {
+      eyebrow: '— What we do',
+      headline: (<>Not your corner<br/>carpenter.</>),
+      body: 'Doig Woodwork is a proven program for a custom kitchen. Full design service, workshop fabrication with quality materials, and professional install. Start to finish, one company.',
+      stats: [
+        { n: '5', l: 'Process phases' },
+        { n: '2', l: 'Countries served' },
+        { n: '1 year', l: 'Free service' },
+        { n: '30/30/30/10', l: 'Payment plan' },
+      ],
+    },
+    tiersIntro: {
+      eyebrow: '— Tiers',
+      headline: 'From rental ready to your dream kitchen.',
+      body: 'Three tiers to match your project, budget, and level of detail. All held to the same fabrication standards.',
+    },
+    tiers: [
+      { label: 'Kitchen A', name: 'Essential', desc: 'Quality melamine, clean lines, soft-close hardware. Ideal for rentals or a starter home.', features: ['1 design revision', 'Arauco or Vesto melamine fronts', 'Soft-close hinges & rails', '2-day install', '1 year warranty'], price: 'From $85,000 MXN' },
+      { label: 'Kitchen AA', name: 'Distinguished', desc: 'Material combinations, more functionality, premium finishes. Our most popular tier.', features: ['Up to 2 design revisions', 'Premium melamine or wood', 'Mixed finish options', 'Advanced hardware available', '1 year warranty'], price: 'From $180,000 MXN', featured: true },
+      { label: 'Kitchen AAA', name: 'Custom', desc: 'Full concierge service, fine woods, à-la-carte details. For design homes and demanding clients.', features: ['Full concierge service', 'Fine woods — Walnut, Oak', 'Blum hardware on request', 'Integrated lighting', 'Paneling & glass doors'], price: 'From $350,000 MXN' },
+    ],
+    proceso: {
+      eyebrow: '— How we work',
+      headline: 'A five-phase process.',
+      body: 'Each phase has clear deliverables and approval moments. You always know exactly where your project stands.',
+      phases: [
+        { n: '01', title: 'Preliminary Quote', body: 'Site visit to evaluate spaces and listen to needs. We take photos, rough measurements and hand back a preliminary quote based on a clean white baseline.', deliverable: 'Base quote' },
+        { n: '02', title: 'Integral Design', body: 'Once 30% is covered, we assign an architect. Precise measurements, appliance specs, render and fabrication drawings. Client signs before production.', deliverable: 'Render + drawings' },
+        { n: '03', title: 'Fabrication & Finishes', body: 'Material purchase and workshop fabrication. No changes accepted in this phase. Quality on every piece, timeline based on complexity and availability.', deliverable: 'Calibrated pieces' },
+        { n: '04', title: 'Shipping', body: 'Local project: direct delivery. Non-local: protected shipping quoted separately. Everything packed to arrive in perfect condition.', deliverable: 'Logistics' },
+        { n: '05', title: 'Installation', body: 'Trained installers, from 2 days (A/AA) to 2 weeks (AAA). Final walkthrough, inspection, and project handover.', deliverable: 'Final handover' },
+      ],
+    },
+    materials: { eyebrow: '— Styles & finishes', headline: 'Woods, melamines and stains.', body: 'Fronts are what dress your kitchen. We choose materials for durability, look and budget — from hard-wearing melamines to solid wood with custom staining.' },
+    gallery: { eyebrow: '— Projects', headline: 'Recent kitchens.', body: 'A handful of projects we\'ve finished for our clients. Each with its own decisions on style, finish and function.', cta: 'View all' },
+    cta: { eyebrow: '— Next step', headline: 'Book a visit.', body: 'No commitment. We come out, measure, listen, and hand back a preliminary quote.', primary: 'Message on WhatsApp', secondary: 'Schedule a call' },
+    contact: { title: 'Tell us about your project', sub: 'We respond within 24 hours. Prefer WhatsApp? We can start there.', fields: { name: 'Name', email: 'Email', phone: 'Phone', city: 'City', tier: 'Which tier are you considering?', size: 'Approximate size', msg: 'Tell us more' }, chips: ['Kitchen A', 'Kitchen AA', 'Kitchen AAA', 'Not sure yet'], submit: 'Send request', or: 'or' },
+    faq: { eyebrow: '— FAQ', headline: 'What we\'re often asked.', items: [
+      { q: 'How long does a full project take?', a: 'From preliminary quote to final install, a Kitchen A takes 6-8 weeks. A Kitchen AA takes 8-12 weeks. A Kitchen AAA can take 12-20 weeks depending on complexity and materials.' },
+      { q: 'Do you work in San Diego or only Tijuana?', a: 'Yes, we work on both sides of the border. Our workshop is in Tijuana, and we service projects in San Diego, Tecate, Rosarito, and Ensenada. For non-local projects we quote protected shipping.' },
+      { q: 'Can I pay in installments?', a: 'In addition to the base 30/30/30/10 plan, we offer a 6 or 9 month payment program depending on project size. Ask during quoting.' },
+      { q: 'What materials do you use for cabinets?', a: 'The structure uses 3/4" Baltic Birch with a transparent seal — resistant to odors and humidity. For fronts, Arauco and Vesto melamines, or woods like Birch, Oak, and Walnut depending on tier.' },
+      { q: 'Is the hardware new?', a: 'All hardware is 100% new. Soft-close hinges and rails come standard on every job. Blum hardware and push mechanisms available on request.' },
+      { q: 'Can I visit the workshop?', a: 'Yes, we schedule workshop visits during the design phase. It\'s something our clients really value — seeing where and how your kitchen is being built.' },
+      { q: 'What warranty do you offer?', a: 'Free 1-year service on stability, paint damage, and hardware failures. The full warranty policy is included as an annex in your quote.' },
+    ] },
+    testimonios: { eyebrow: '— What they say', headline: 'Clients who came back for more.', list: [
+      { quote: 'What sold us was the customer service, the content on their social media, the formality in email scheduling, payment receipts, and being able to visit their workshop and see the process.', author: 'Carolina M.', project: 'Liso Moderno Kitchen · Tijuana', img: 'images/testimonial-carolina.jpg' },
+      { quote: 'Beautiful! We\'re so happy with the final result. We\'ll be in touch soon to continue with the closets and other work. Thank you.', author: 'Vanessa L.', project: 'Liso Moderno Nogal Kitchen · Rosarito', img: 'images/testimonial-vanessa.jpg' },
+      { quote: 'The process was transparent from day one. The phases, the payments, the timelines — all documented. First time working with a carpenter that\'s actually a real company.', author: 'Roberto D.', project: 'Liso Moderno Kitchen · Tijuana', img: 'images/testimonial-roberto.jpg' },
+    ] },
+  },
+};
+
+// Materials — pulled from sales deck
+const MATERIALS = {
+  wood: [
+    { name: 'Birch Natural', klass: 'w-birch wood', tag: 'Tier AA/AAA' },
+    { name: 'Encino Natural', klass: 'w-encino wood', tag: 'Popular' },
+    { name: 'Encino Entintado', klass: 'w-encino-t wood', tag: 'Best seller' },
+    { name: 'Nogal', klass: 'w-nogal wood', tag: 'Alta gama' },
+    { name: 'Verde Olivo', klass: 'w-olive', tag: 'Pintura' },
+    { name: 'Azul Navy', klass: 'w-navy', tag: 'Pintura' },
+    { name: 'Arena', klass: 'w-arena', tag: 'Pintura' },
+    { name: 'Blanco', klass: 'w-white', tag: 'Más vendido' },
+    { name: 'Off White', klass: 'w-offwhite', tag: 'Pintura' },
+    { name: 'Gris Claro', klass: 'w-grey-light', tag: 'Pintura' },
+    { name: 'Gris Oscuro', klass: 'w-grey-dark', tag: 'Pintura' },
+    { name: 'Negro', klass: 'w-black', tag: 'Pintura' },
+  ],
+  melamine: [
+    { name: 'Nougat', klass: 'w-nougat', tag: 'Melamina' },
+    { name: 'Roble Americano', klass: 'w-roble', tag: 'Más vendido' },
+    { name: 'Toscana', klass: 'w-toscana', tag: 'Melamina' },
+    { name: 'Cocoa', klass: 'w-cocoa', tag: 'Melamina' },
+    { name: 'Blanco Absoluto', klass: 'w-blanco-abs', tag: 'Combinado' },
+    { name: 'Gris Claro', klass: 'w-grey-light', tag: 'Melamina' },
+  ],
+};
+
+// Projects — gallery items
+const PROJECTS = [
+  { id: 'liso-blanco', title: 'Liso Europeo Blanco', style: 'Estilo Liso', tier: 'Cocina AA', desc: 'Cocina chica con un acabado limpio y funcional para iluminar espacios pequeños.', img: PHOTOS.kitchen1, price: '$165,000 MXN', location: 'Tijuana' },
+  { id: 'shaker-mixto', title: 'Shaker Encino & Blanco', style: 'Mixto Shaker', tier: 'Cocina AAA', desc: 'Una mezcla ganadora, elegida por familias que buscan elegancia y sencillez.', img: PHOTOS.kitchen2, price: '$420,000 MXN', location: 'Chula Vista' },
+  { id: 'liso-nogal', title: 'Liso Nogal', style: 'Estilo Liso', tier: 'Cocina AAA', desc: 'Para cocinas de alta gama, el nogal le da una esencia natural a través de la vista y el olfato.', img: PHOTOS.kitchen3, price: '$580,000 MXN', location: 'Rosarito' },
+  { id: 'mixto-gris-encino', title: 'Gris Oscuro & Encino Entintado', style: 'Mixto Liso', tier: 'Cocina AAA', desc: 'Una mezcla de acabados y accesorios para aquellos que buscan resultados impecables.', img: PHOTOS.kitchen4, price: '$495,000 MXN', location: 'Tijuana' },
+  { id: 'moderno-navy', title: 'Liso Azul Navy', style: 'Estilo Liso', tier: 'Cocina AA', desc: 'Pintura a la medida sobre contrachapado báltico, con isla central y herrajes Blum.', img: PHOTOS.kitchen5, price: '$275,000 MXN', location: 'San Diego' },
+  { id: 'melamina-roble', title: 'Melamina Roble Americano', style: 'Estilo Liso Moderno', tier: 'Cocina A', desc: 'La opción más vendida para proyectos de renta. Durabilidad y calidad en melamina.', img: PHOTOS.kitchen6, price: '$120,000 MXN', location: 'Tijuana' },
+];
+
+Object.assign(window, { PHOTOS, COPY, MATERIALS, PROJECTS });
