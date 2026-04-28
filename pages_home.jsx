@@ -47,7 +47,7 @@ function HomePage() {
       {/* MANIFESTO */}
       <section className="section">
         <div className="page">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--s-9)', alignItems: 'start' }}>
+          <div className="manifesto-grid">
             <div>
               <div className="eyebrow" style={{ marginBottom: 24 }}>{t.manifesto.eyebrow}</div>
               <h2 className="display-l" style={{ margin: 0 }}>{t.manifesto.headline}</h2>
@@ -83,7 +83,7 @@ function HomePage() {
             align="split"
             cta={<button className="btn btn-ghost btn-sm" onClick={() => go('proceso')} style={{ marginTop: 24 }}>Ver proceso completo <span className="arrow">→</span></button>}
           />
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 'var(--s-5)', marginTop: 'var(--s-6)' }}>
+          <div className="process-preview-grid">
             {t.proceso.phases.map((p, i) => (
               <div key={i} style={{ borderTop: '1px solid var(--ink)', paddingTop: 16 }}>
                 <div className="mono" style={{ color: 'var(--walnut)', fontWeight: 500 }}>{p.n}</div>
@@ -98,7 +98,7 @@ function HomePage() {
       {/* TESTIMONIAL */}
       <section className="section" style={{ background: 'var(--bone-50)' }}>
         <div className="page">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 'var(--s-8)', alignItems: 'stretch' }}>
+          <div className="testimonial-grid">
             <Img src={t.testimonios.list[0].img || PHOTOS.kitchen2} alt={t.testimonios.list[0].author} aspect="3/4" label="Cliente" />
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <div className="eyebrow" style={{ marginBottom: 24 }}>— Testimonios</div>

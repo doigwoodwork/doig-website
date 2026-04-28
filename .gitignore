@@ -4,3 +4,5 @@ uploads/
 scraps/
 *.log
 _debug_*
+
+.vercel

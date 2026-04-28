@@ -18,6 +18,7 @@ const useRoute = () => useContext(RouteCtx);
 function Nav() {
   const { lang, setLang } = useLang();
   const { route, go } = useRoute();
+  const [mobileOpen, setMobileOpen] = useState(false);
   const t = useT();
   const items = [
     { k: 'home', l: t.nav.home },
@@ -26,10 +27,16 @@ function Nav() {
     { k: 'testimonios', l: t.nav.testimonios },
     // { k: 'faq', l: t.nav.faq }, // oculto temporalmente — pendiente mejoras
   ];
+
+  const handleNav = (k) => {
+    go(k);
+    setMobileOpen(false);
+  };
+
   return (
-    <nav className="nav">
+    <nav className={`nav ${mobileOpen ? 'nav-mobile-open' : ''}`}>
       <div className="nav-inner">
-        <a className="brand" onClick={(e) => { e.preventDefault(); go('home'); }} href="#">
+        <a className="brand" onClick={(e) => { e.preventDefault(); handleNav('home'); }} href="#">
           <span className="brand-wm">Doig</span>
           <span className="brand-tag">Woodwork · {t.tagline}</span>
         </a>
@@ -44,13 +51,50 @@ function Nav() {
             </li>
           ))}
         </ul>
-        <div className="nav-right">
+        <div className="nav-right hide-mobile">
           <button className="lang-toggle" onClick={() => setLang(lang === 'es' ? 'en' : 'es')}>
             <span className={lang === 'es' ? 'on' : ''}>ES</span>
             <span>/</span>
             <span className={lang === 'en' ? 'on' : ''}>EN</span>
           </button>
           <button className="btn btn-primary btn-sm" onClick={() => go('contacto')}>
+            {t.nav.contacto} <span className="arrow">→</span>
+          </button>
+        </div>
+
+        {/* Mobile hamburger button */}
+        <button
+          className="nav-hamburger show-mobile"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={mobileOpen}
+        >
+          <span className="nav-hamburger-line" />
+          <span className="nav-hamburger-line" />
+          <span className="nav-hamburger-line" />
+        </button>
+      </div>
+
+      {/* Mobile menu dropdown */}
+      <div className={`nav-mobile-menu ${mobileOpen ? 'is-open' : ''}`}>
+        <ul className="nav-mobile-links">
+          {items.map(it => (
+            <li key={it.k}>
+              <a
+                href={`#${it.k}`}
+                onClick={(e) => { e.preventDefault(); handleNav(it.k); }}
+                className={route === it.k ? 'active' : ''}
+              >{it.l}</a>
+            </li>
+          ))}
+        </ul>
+        <div className="nav-mobile-footer">
+          <button className="lang-toggle" onClick={() => setLang(lang === 'es' ? 'en' : 'es')}>
+            <span className={lang === 'es' ? 'on' : ''}>ES</span>
+            <span>/</span>
+            <span className={lang === 'en' ? 'on' : ''}>EN</span>
+          </button>
+          <button className="btn btn-primary" onClick={() => handleNav('contacto')}>
             {t.nav.contacto} <span className="arrow">→</span>
           </button>
         </div>
@@ -133,13 +177,7 @@ function Img({ src, alt, aspect, label, className = '', style }) {
 // ============== Section header ==============
 function SectionHeader({ eyebrow, headline, body, align = 'start', cta }) {
   return (
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: align === 'split' ? '1fr 1fr' : '1fr',
-      gap: 'var(--s-7)',
-      marginBottom: 'var(--s-7)',
-      alignItems: 'end',
-    }}>
+    <div className={`section-header-grid${align === 'split' ? ' is-split' : ''}`}>
       <div style={{ maxWidth: align === 'split' ? 'none' : '720px' }}>
         {eyebrow && <div className="eyebrow" style={{ marginBottom: 16 }}>{eyebrow}</div>}
         {headline && <h2 className="display-l" style={{ margin: 0 }}>{headline}</h2>}
@@ -168,7 +206,7 @@ function CTABlock() {
   return (
     <section className="section" style={{ background: 'var(--ink)', color: 'var(--bone)', margin: '0' }}>
       <div className="page">
-        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 'var(--s-8)', alignItems: 'center' }}>
+        <div className="cta-grid">
           <div>
             <div className="eyebrow" style={{ color: 'var(--ink-20)', marginBottom: 16 }}>{t.cta.eyebrow}</div>
             <h2 className="display-l" style={{ margin: 0, color: 'var(--bone)' }}>{t.cta.headline}</h2>
@@ -182,7 +220,7 @@ function CTABlock() {
               </button>
             </div>
           </div>
-          <div style={{
+          <div className="cta-doig-text" style={{
             fontFamily: 'var(--f-display)',
             fontSize: 'clamp(80px, 14vw, 240px)',
             lineHeight: 0.85,

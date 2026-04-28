@@ -148,13 +148,7 @@ function CocinasPage() {
             {COPY.title1}<br/>
             {COPY.title2} <em style={{ color: 'var(--walnut)' }}>{COPY.titleEm}</em>
           </h1>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1.1fr 1fr',
-            gap: 'var(--s-8)',
-            marginTop: 'var(--s-8)',
-            alignItems: 'end',
-          }} className="cocinas-hero-grid">
+          <div className="cocinas-hero-grid">
             <p className="lead" style={{ maxWidth: '52ch', margin: 0 }}>{COPY.lead}</p>
 
             {/* Index — quick jump links */}
@@ -245,12 +239,7 @@ function StyleSection({ style, copy, onCTA, index }) {
         </h2>
 
         {/* Main image + side thumbs — constrained width, balanced proportions */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 100px',
-          gap: 16,
-          maxWidth: 960,
-        }}>
+        <div className="style-image-grid">
           <div style={{
             position: 'relative',
             aspectRatio: '4 / 3',
@@ -278,7 +267,7 @@ function StyleSection({ style, copy, onCTA, index }) {
           </div>
 
           {/* Vertical thumbs */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          <div className="style-thumbs-col">
             {style.images.map((src, i) => (
               <button
                 key={i}
@@ -308,13 +297,7 @@ function StyleSection({ style, copy, onCTA, index }) {
         </div>
 
         {/* Content — two columns: description + features */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1.2fr 1fr',
-          gap: 'var(--s-8)',
-          marginTop: 'var(--s-7)',
-          alignItems: 'start',
-        }} className="cocinas-content-grid">
+        <div className="cocinas-content-grid">
           <div>
             <p className="lead" style={{ margin: 0, maxWidth: '52ch' }}>{style.description}</p>
 

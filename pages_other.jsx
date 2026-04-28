@@ -16,14 +16,11 @@ function TestimoniosPage() {
       <section style={{ paddingBottom: 'var(--s-10)' }}>
         <div className="page">
           {t.testimonios.list.map((it, i) => (
-            <div key={i} style={{
-              display: 'grid',
+            <div key={i} className="testimonio-grid" style={{
               gridTemplateColumns: i % 2 === 0 ? '1fr 1.4fr' : '1.4fr 1fr',
-              gap: 'var(--s-8)',
               padding: 'var(--s-8) 0',
               borderTop: i === 0 ? '1px solid var(--line)' : 'none',
               borderBottom: '1px solid var(--line)',
-              alignItems: 'center',
             }}>
               {i % 2 === 0 ? (
                 <>
@@ -153,7 +150,7 @@ function ContactoPage() {
 
       <section style={{ paddingBottom: 'var(--s-10)' }}>
         <div className="page">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 'var(--s-9)' }}>
+          <div className="contacto-grid">
             <div>
               {submitted ? (
                 <div style={{ padding: 'var(--s-7)', background: 'var(--bone-50)', border: '1px solid var(--line)' }}>
@@ -164,7 +161,7 @@ function ContactoPage() {
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--s-5)' }}>
                   {/* honeypot anti-spam */}
                   <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex="-1" autoComplete="off" />
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--s-4)' }}>
+                  <div className="form-fields-grid">
                     <div className="form-row">
                       <label>{t.contact.fields.name}</label>
                       <input className="input" name="name" required placeholder="Tu nombre" />
@@ -199,7 +196,7 @@ function ContactoPage() {
                       {errorMsg}
                     </div>
                   )}
-                  <div style={{ display: 'flex', gap: 12, marginTop: 16, alignItems: 'center' }}>
+                  <div className="contacto-submit-row">
                     <button type="submit" disabled={sending} className="btn btn-primary btn-lg">
                       {sending ? 'Enviando…' : t.contact.submit} <span className="arrow">→</span>
                     </button>

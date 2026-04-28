@@ -49,7 +49,7 @@ function ProcesoPage() {
           />
 
           {/* Two-column layout: schedule + methods */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 'var(--s-8)', alignItems: 'start' }}>
+          <div className="proceso-payment-grid">
 
             {/* LEFT — schedule */}
             <div>
@@ -63,14 +63,9 @@ function ProcesoPage() {
                   { n: '30%', k: 'Instalación', d: 'Para agendar la instalación del trabajo.' },
                   { n: '10%', k: 'Entrega', d: 'Al finalizar el proyecto.' },
                 ].map((s, i, arr) => (
-                  <div key={i} style={{
-                    display: 'grid',
-                    gridTemplateColumns: '140px 1fr',
-                    alignItems: 'center',
-                    padding: '20px 24px',
+                  <div key={i} className="payment-schedule-row" style={{
                     borderBottom: i < arr.length - 1 ? '1px solid var(--line)' : 'none',
                     background: 'white',
-                    gap: 20,
                   }}>
                     <div className="display" style={{ fontSize: 56, lineHeight: 0.95, fontStyle: 'italic', color: 'var(--walnut)' }}>{s.n}</div>
                     <div>
@@ -173,7 +168,7 @@ function ProcesoPage() {
             body="Contamos con garantía de fabricación, instalación, y en herrajes. Nuestro compromiso es entregarte un trabajo bien hecho que sea funcional y duradero."
             align="split"
           />
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--s-5)' }}>
+          <div className="warranty-grid">
             {[
               { k: 'Estabilidad', d: 'Asentamiento y uniones de muebles.' },
               { k: 'Pintura', d: 'Daños en acabados y pintura.' },
