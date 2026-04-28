@@ -22,7 +22,7 @@ const COPY = {
     tagline: 'cocinas bien hechas',
     nav: {
       home: 'Inicio',
-      cocinas: 'Inicio',
+      cocinas: 'Cocinas',
       proceso: 'Proceso',
       testimonios: 'Testimonios',
       faq: 'Preguntas',
