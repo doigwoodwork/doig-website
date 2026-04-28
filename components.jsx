@@ -66,7 +66,7 @@ function Nav() {
         <button
           className="nav-hamburger show-mobile"
           onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-label={mobileOpen ? t.a11y.closeMenu : t.a11y.openMenu}
           aria-expanded={mobileOpen}
         >
           <span className="nav-hamburger-line" />
@@ -117,11 +117,11 @@ function Footer() {
               {t.tagline}
             </div>
             <div style={{ marginTop: 32, maxWidth: 320, color: 'var(--bone-200)', fontSize: 14, lineHeight: 1.6 }}>
-              Cocinas fabricadas desde Tijuana para toda la región.
+              {t.footer.tagline}
             </div>
           </div>
           <div>
-            <h4>Navegación</h4>
+            <h4>{t.footer.nav}</h4>
             <ul>
               <li><a href="#" onClick={(e) => { e.preventDefault(); go('home'); }}>{t.nav.home}</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); go('cocinas'); }}>{t.nav.cocinas}</a></li>
@@ -131,7 +131,7 @@ function Footer() {
             </ul>
           </div>
           <div>
-            <h4>Contacto</h4>
+            <h4>{t.footer.contact}</h4>
             <ul>
               <li><a href="tel:+526644987845">+52 664 498 7845</a></li>
               <li><a href="mailto:doigwoodwork@gmail.com">doigwoodwork@gmail.com</a></li>
@@ -139,7 +139,7 @@ function Footer() {
             </ul>
           </div>
           <div>
-            <h4>Social</h4>
+            <h4>{t.footer.social}</h4>
             <ul>
               <li><a href="https://instagram.com/doigwoodwork" target="_blank" rel="noopener">Instagram</a></li>
               <li><a href="https://facebook.com/doigwoodwork" target="_blank" rel="noopener">Facebook</a></li>
@@ -148,7 +148,7 @@ function Footer() {
           </div>
         </div>
         <div className="footer-legal">
-          <span>© 2026 Doig Woodwork. Todos los derechos reservados.</span>
+          <span>{t.footer.legal}</span>
           <span>Tijuana · San Diego · Rosarito · Ensenada · Mexicali</span>
         </div>
       </div>

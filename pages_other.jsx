@@ -7,9 +7,7 @@ function TestimoniosPage() {
       <section className="section">
         <div className="page">
           <div className="eyebrow" style={{ marginBottom: 24 }}>{t.testimonios.eyebrow}</div>
-          <h1 className="display-xl" style={{ margin: 0, maxWidth: '14ch' }}>
-            Clientes que <em style={{ color: 'var(--walnut)' }}>volvieron</em> por más.
-          </h1>
+          <h1 className="display-xl" style={{ margin: 0, maxWidth: '14ch' }} dangerouslySetInnerHTML={{ __html: t.testimonios.headline.replace('volvieron', '<em style="color: var(--walnut)">volvieron</em>').replace('came back', '<em style="color: var(--walnut)">came back</em>') }} />
         </div>
       </section>
 
@@ -132,10 +130,10 @@ function ContactoPage() {
       if (data.success) {
         setSubmitted(true);
       } else {
-        setErrorMsg(data.message || 'No pudimos enviar tu mensaje. Inténtalo de nuevo o escríbenos por WhatsApp.');
+        setErrorMsg(data.message || t.contactoPage.errorGeneric);
       }
     } catch (err) {
-      setErrorMsg('Error de conexión. Inténtalo de nuevo o escríbenos por WhatsApp.');
+      setErrorMsg(t.contactoPage.errorConnection);
     } finally {
       setSending(false);
     }
@@ -145,10 +143,8 @@ function ContactoPage() {
     <div className="page-enter">
       <section className="section">
         <div className="page">
-          <div className="eyebrow" style={{ marginBottom: 24 }}>— Cotización</div>
-          <h1 className="display-xl" style={{ margin: 0, maxWidth: '14ch' }}>
-            Empecemos tu <em style={{ color: 'var(--walnut)' }}>cocina</em>.
-          </h1>
+          <div className="eyebrow" style={{ marginBottom: 24 }}>{t.contactoPage.eyebrow}</div>
+          <h1 className="display-xl" style={{ margin: 0, maxWidth: '14ch' }} dangerouslySetInnerHTML={{ __html: t.contactoPage.headline }} />
           <p className="lead" style={{ marginTop: 32, maxWidth: '60ch' }}>{t.contact.sub}</p>
         </div>
       </section>
@@ -159,8 +155,8 @@ function ContactoPage() {
             <div>
               {submitted ? (
                 <div style={{ padding: 'var(--s-7)', background: 'var(--bone-50)', border: '1px solid var(--line)' }}>
-                  <div className="display-m">Gracias.</div>
-                  <p className="body-l" style={{ marginTop: 16 }}>Recibimos tu solicitud. Te escribimos en menos de 24 horas.</p>
+                  <div className="display-m">{t.contactoPage.thanks}</div>
+                  <p className="body-l" style={{ marginTop: 16 }}>{t.contactoPage.thanksMsg}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--s-5)' }}>
@@ -169,11 +165,11 @@ function ContactoPage() {
                   <div className="form-fields-grid">
                     <div className="form-row">
                       <label>{t.contact.fields.name}</label>
-                      <input className="input" name="name" required placeholder="Tu nombre" />
+                      <input className="input" name="name" required placeholder={t.contactoPage.namePlaceholder} />
                     </div>
                     <div className="form-row">
                       <label>{t.contact.fields.email}</label>
-                      <input className="input" name="email" type="email" required placeholder="tu@correo.com" />
+                      <input className="input" name="email" type="email" required placeholder={t.contactoPage.emailPlaceholder} />
                     </div>
                     <div className="form-row">
                       <label>{t.contact.fields.phone}</label>
@@ -191,7 +187,7 @@ function ContactoPage() {
                           className="input"
                           name="phone"
                           type="tel"
-                          placeholder="10 dígitos"
+                          placeholder={t.contactoPage.phonePlaceholder}
                           maxLength={10}
                           pattern="[0-9]{10}"
                           style={{ flex: 1 }}
@@ -200,7 +196,7 @@ function ContactoPage() {
                     </div>
                     <div className="form-row">
                       <label>{t.contact.fields.city}</label>
-                      <input className="input" name="city" placeholder="Tijuana, San Diego…" />
+                      <input className="input" name="city" placeholder={t.contactoPage.cityPlaceholder} />
                     </div>
                   </div>
                   <div className="form-row">
@@ -213,7 +209,7 @@ function ContactoPage() {
                   </div>
                   <div className="form-row">
                     <label>{t.contact.fields.msg}</label>
-                    <textarea className="textarea" name="message" placeholder="Tamaño aproximado, estilo deseado, plazos…" />
+                    <textarea className="textarea" name="message" placeholder={t.contactoPage.msgPlaceholder} />
                   </div>
                   {errorMsg && (
                     <div style={{ padding: 12, border: '1px solid #c44', background: '#fff5f5', color: '#a22', fontSize: 14 }}>
@@ -222,7 +218,7 @@ function ContactoPage() {
                   )}
                   <div className="contacto-submit-row">
                     <button type="submit" disabled={sending} className="btn btn-primary btn-lg">
-                      {sending ? 'Enviando…' : t.contact.submit} <span className="arrow">→</span>
+                      {sending ? t.contactoPage.sending : t.contact.submit} <span className="arrow">→</span>
                     </button>
                     <span className="mono" style={{ color: 'var(--ink-60)' }}>{t.contact.or}</span>
                     <a href="https://wa.me/526644987845" target="_blank" className="btn btn-wa btn-lg"><WAIcon /> WhatsApp</a>
@@ -232,20 +228,20 @@ function ContactoPage() {
             </div>
 
             <aside style={{ padding: 'var(--s-6)', background: 'var(--bone-50)', border: '1px solid var(--line)', alignSelf: 'start' }}>
-              <div className="eyebrow" style={{ marginBottom: 16 }}>— Contacto directo</div>
+              <div className="eyebrow" style={{ marginBottom: 16 }}>{t.contactoPage.directContact}</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--s-5)' }}>
                 <div>
-                  <div className="mono" style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-60)' }}>WhatsApp</div>
+                  <div className="mono" style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-60)' }}>{t.contactoPage.whatsapp}</div>
                   <a href="https://wa.me/526644987845" className="display-s" style={{ fontSize: 22 }}>+52 664 498 7845</a>
                 </div>
                 <div>
-                  <div className="mono" style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-60)' }}>Email</div>
+                  <div className="mono" style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-60)' }}>{t.contactoPage.email}</div>
                   <a href="mailto:doigwoodwork@gmail.com" style={{ fontSize: 15 }}>doigwoodwork@gmail.com</a>
                 </div>
                 <div>
-                  <div className="mono" style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-60)' }}>Taller</div>
+                  <div className="mono" style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-60)' }}>{t.contactoPage.workshop}</div>
                   <div style={{ fontSize: 15 }}>Tijuana, Baja California</div>
-                  <div className="small">Lun–Vie · 9:00–18:00</div>
+                  <div className="small">{t.contactoPage.hours}</div>
                 </div>
               </div>
             </aside>

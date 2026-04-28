@@ -9,11 +9,9 @@ function ProcesoPage() {
       <section className="section">
         <div className="page">
           <div className="eyebrow" style={{ marginBottom: 24 }}>{t.proceso.eyebrow}</div>
-          <h1 className="display-xl" style={{ margin: 0, maxWidth: '14ch' }}>
-            Un <em style={{ color: 'var(--walnut)' }}>proceso</em> comprobado.
-          </h1>
+          <h1 className="display-xl" style={{ margin: 0, maxWidth: '14ch' }} dangerouslySetInnerHTML={{ __html: t.procesoPage.heroHeadline }} />
           <p className="lead" style={{ marginTop: 32, maxWidth: '60ch' }}>
-            Cinco fases, entregables claros y momentos de aprobación definidos. Así sabes exactamente dónde está tu proyecto y qué sigue.
+            {t.procesoPage.heroLead}
           </p>
         </div>
       </section>
@@ -26,7 +24,7 @@ function ProcesoPage() {
               <div>
                 <h3 className="display-m" style={{ margin: 0 }}>{p.title}</h3>
                 <div className="mono" style={{ marginTop: 12, color: 'var(--ink-60)', textTransform: 'uppercase', fontSize: 10, letterSpacing: '0.12em' }}>
-                  Entregable → {p.deliverable}
+                  {t.procesoPage.deliverableLabel} → {p.deliverable}
                 </div>
               </div>
               <div>
@@ -42,9 +40,9 @@ function ProcesoPage() {
       <section className="section" style={{ background: 'var(--bone-50)' }}>
         <div className="page">
           <SectionHeader
-            eyebrow="— Pagos"
-            headline="Pagos amigables"
-            body="Cuatro pagos a lo largo del proyecto, con tres formas de pagar. También contamos con programa de pagos a 6 o 9 meses según el tamaño."
+            eyebrow={t.procesoPage.paymentEyebrow}
+            headline={t.procesoPage.paymentHeadline}
+            body={t.procesoPage.paymentBody}
             align="split"
           />
 
@@ -54,15 +52,10 @@ function ProcesoPage() {
             {/* LEFT — schedule */}
             <div>
               <div className="mono" style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'var(--ink-60)', marginBottom: 24 }}>
-                01 — Calendario de pagos
+                {t.procesoPage.scheduleLabel}
               </div>
               <div style={{ display: 'grid', gap: 0, border: '1px solid var(--ink)' }}>
-                {[
-                  { n: '30%', k: 'Inicio', d: 'Para arrancar la fase de diseño.' },
-                  { n: '30%', k: 'Diseño', d: 'Al firmar render y planos de fabricación.' },
-                  { n: '30%', k: 'Instalación', d: 'Para agendar la instalación del trabajo.' },
-                  { n: '10%', k: 'Entrega', d: 'Al finalizar el proyecto.' },
-                ].map((s, i, arr) => (
+                {t.procesoPage.scheduleRows.map((s, i, arr) => (
                   <div key={i} className="payment-schedule-row" style={{
                     borderBottom: i < arr.length - 1 ? '1px solid var(--line)' : 'none',
                     background: 'white',
@@ -76,21 +69,21 @@ function ProcesoPage() {
                 ))}
               </div>
               <div style={{ marginTop: 16, fontSize: 12, color: 'var(--ink-60)', fontStyle: 'italic' }}>
-                Suma: 100% del proyecto, distribuido en cuatro momentos clave.
+                {t.procesoPage.scheduleNote}
               </div>
             </div>
 
             {/* RIGHT — methods */}
             <div>
               <div className="mono" style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'var(--ink-60)', marginBottom: 24 }}>
-                02 — Métodos de pago
+                {t.procesoPage.methodsLabel}
               </div>
               <div style={{ display: 'grid', gap: 12 }}>
                 {[
                   {
-                    k: 'Efectivo',
-                    d: 'Precio base de cotización.',
-                    badge: 'Sin cargo',
+                    k: t.procesoPage.methods[0].k,
+                    d: t.procesoPage.methods[0].d,
+                    badge: t.procesoPage.methods[0].badge,
                     highlight: true,
                     icon: (
                       <svg width="28" height="28" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -101,9 +94,9 @@ function ProcesoPage() {
                     ),
                   },
                   {
-                    k: 'Transferencia',
-                    d: 'Transferencia bancaria.',
-                    badge: '+ IVA',
+                    k: t.procesoPage.methods[1].k,
+                    d: t.procesoPage.methods[1].d,
+                    badge: t.procesoPage.methods[1].badge,
                     highlight: false,
                     icon: (
                       <svg width="28" height="28" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -112,9 +105,9 @@ function ProcesoPage() {
                     ),
                   },
                   {
-                    k: 'Tarjeta',
-                    d: 'Crédito o débito.',
-                    badge: '+ IVA · 5% procesamiento',
+                    k: t.procesoPage.methods[2].k,
+                    d: t.procesoPage.methods[2].d,
+                    badge: t.procesoPage.methods[2].badge,
                     highlight: false,
                     icon: (
                       <svg width="28" height="28" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -152,7 +145,7 @@ function ProcesoPage() {
                 ))}
               </div>
               <div style={{ marginTop: 16, fontSize: 12, color: 'var(--ink-60)', fontStyle: 'italic' }}>
-                La cotización siempre se presenta en efectivo; los cargos adicionales aplican al elegir otro método.
+                {t.procesoPage.methodsNote}
               </div>
             </div>
           </div>
@@ -163,17 +156,13 @@ function ProcesoPage() {
       <section className="section">
         <div className="page">
           <SectionHeader
-            eyebrow="— Garantías"
-            headline="Garantías en cada cocina"
-            body="Contamos con garantía de fabricación, instalación, y en herrajes. Nuestro compromiso es entregarte un trabajo bien hecho que sea funcional y duradero."
+            eyebrow={t.procesoPage.warrantyEyebrow}
+            headline={t.procesoPage.warrantyHeadline}
+            body={t.procesoPage.warrantyBody}
             align="split"
           />
           <div className="warranty-grid">
-            {[
-              { k: 'Estabilidad', d: 'Asentamiento y uniones de muebles.' },
-              { k: 'Pintura', d: 'Daños en acabados y pintura.' },
-              { k: 'Herrajes', d: 'Fallas de bisagras, rieles y accesorios.' },
-            ].map((s, i) => (
+            {t.procesoPage.warranties.map((s, i) => (
               <div key={i} style={{ borderTop: '1px solid var(--line)', paddingTop: 16 }}>
                 <h4 className="display-s" style={{ margin: 0 }}>{s.k}</h4>
                 <div style={{ marginTop: 8, color: 'var(--ink-60)' }}>{s.d}</div>
