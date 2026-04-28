@@ -103,6 +103,7 @@ const WEB3FORMS_KEY = 'c5559ddd-0463-4c7d-8247-336939a5a22d';
 function ContactoPage() {
   const t = useT();
   const [tier, setTier] = useState(null);
+  const [countryCode, setCountryCode] = useState('+52');
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
@@ -114,6 +115,10 @@ function ContactoPage() {
     setErrorMsg(null);
     const form = e.currentTarget;
     const fd = new FormData(form);
+    const phoneNum = fd.get('phone');
+    if (phoneNum) {
+      fd.set('phone', countryCode + ' ' + phoneNum);
+    }
     fd.append('access_key', WEB3FORMS_KEY);
     fd.append('subject', 'Nueva cotización desde doigwoodwork.com');
     fd.append('from_name', 'Doig Woodwork — Web');
@@ -172,7 +177,26 @@ function ContactoPage() {
                     </div>
                     <div className="form-row">
                       <label>{t.contact.fields.phone}</label>
-                      <input className="input" name="phone" placeholder="+52" />
+                      <div style={{ display: 'flex', gap: 8 }}>
+                        <select
+                          className="input"
+                          value={countryCode}
+                          onChange={(e) => setCountryCode(e.target.value)}
+                          style={{ width: 80, flexShrink: 0 }}
+                        >
+                          <option value="+52">+52</option>
+                          <option value="+1">+1</option>
+                        </select>
+                        <input
+                          className="input"
+                          name="phone"
+                          type="tel"
+                          placeholder="10 dígitos"
+                          maxLength={10}
+                          pattern="[0-9]{10}"
+                          style={{ flex: 1 }}
+                        />
+                      </div>
                     </div>
                     <div className="form-row">
                       <label>{t.contact.fields.city}</label>
