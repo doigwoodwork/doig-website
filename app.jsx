@@ -8,27 +8,74 @@ import CocinasPage from './pages_cocinas.jsx'
 import ProcesoPage from './pages_proceso.jsx'
 import { TestimoniosPage, FaqPage, ContactoPage } from './pages_other.jsx'
 
+// Parse URL to get initial route and language
+function parseURL() {
+  const path = window.location.pathname;
+  const segments = path.split('/').filter(Boolean);
+
+  let lang = 'es';
+  let route = 'home';
+
+  // Check if first segment is 'en'
+  if (segments[0] === 'en') {
+    lang = 'en';
+    segments.shift(); // Remove 'en' from segments
+  }
+
+  // Map remaining path to route
+  const validRoutes = ['cocinas', 'proceso', 'testimonios', 'faq', 'contacto'];
+  if (segments[0] && validRoutes.includes(segments[0])) {
+    route = segments[0];
+  }
+
+  return { lang, route };
+}
+
+// Build URL from route and language
+function buildURL(route, lang) {
+  const base = lang === 'en' ? '/en' : '';
+  if (route === 'home') return base || '/';
+  return `${base}/${route}`;
+}
+
 function App() {
   const [lang, setLang] = useState(() => {
+    const { lang: urlLang } = parseURL();
+    // URL takes priority, then localStorage, then default ES
+    if (window.location.pathname !== '/') return urlLang;
     try {
       const stored = localStorage.getItem('doig_lang');
-      // Solo usar localStorage si el usuario eligió EN explícitamente
-      // Default siempre ES
       return stored === 'en' ? 'en' : 'es';
     }
     catch { return 'es'; }
   });
   const [route, setRoute] = useState(() => {
-    try { return localStorage.getItem('doig_route') || 'home'; }
-    catch { return 'home'; }
+    const { route: urlRoute } = parseURL();
+    return urlRoute;
   });
   const [tweaksVisible, setTweaksVisible] = useState(false);
 
   useEffect(() => { try { localStorage.setItem('doig_lang', lang); } catch {} }, [lang]);
+
+  // Update URL when route or lang changes
   useEffect(() => {
-    try { localStorage.setItem('doig_route', route); } catch {}
+    const newURL = buildURL(route, lang);
+    if (window.location.pathname !== newURL) {
+      window.history.pushState({}, '', newURL);
+    }
     window.scrollTo({ top: 0, behavior: 'instant' });
-  }, [route]);
+  }, [route, lang]);
+
+  // Handle browser back/forward buttons
+  useEffect(() => {
+    const handlePopState = () => {
+      const { lang: urlLang, route: urlRoute } = parseURL();
+      setLang(urlLang);
+      setRoute(urlRoute);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   // Edit mode protocol
   useEffect(() => {
