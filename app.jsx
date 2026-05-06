@@ -10,7 +10,12 @@ import { TestimoniosPage, FaqPage, ContactoPage } from './pages_other.jsx'
 
 function App() {
   const [lang, setLang] = useState(() => {
-    try { return localStorage.getItem('doig_lang') || (window.__TWEAK_DEFAULTS?.language || 'es'); }
+    try {
+      const stored = localStorage.getItem('doig_lang');
+      // Solo usar localStorage si el usuario eligió EN explícitamente
+      // Default siempre ES
+      return stored === 'en' ? 'en' : 'es';
+    }
     catch { return 'es'; }
   });
   const [route, setRoute] = useState(() => {
