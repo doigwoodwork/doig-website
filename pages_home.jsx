@@ -1,5 +1,11 @@
 // pages_home.jsx — Home page
 
+import React from 'react'
+import { useLang, useT, useRoute, Img, SectionHeader, WAIcon, CTABlock, Marquee } from './components.jsx'
+import { PHOTOS } from './data.jsx'
+import KitchenStyles from './kitchen_styles.jsx'
+import EngineeringSection from './engineering.jsx'
+
 function HomePage() {
   const t = useT();
   const { lang } = useLang();
@@ -130,4 +136,4 @@ function HomePage() {
   );
 }
 
-window.HomePage = HomePage;
+export default HomePage;

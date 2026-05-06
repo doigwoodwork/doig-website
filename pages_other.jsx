@@ -1,5 +1,9 @@
 // pages_other.jsx — Testimonios, FAQ, Contacto
 
+import React, { useState } from 'react'
+import { useT, useRoute, Img, WAIcon, CTABlock } from './components.jsx'
+import { PROJECTS } from './data.jsx'
+
 function TestimoniosPage() {
   const t = useT();
   return (
@@ -252,4 +256,4 @@ function ContactoPage() {
   );
 }
 
-Object.assign(window, { TestimoniosPage, FaqPage, ContactoPage });
+export { TestimoniosPage, FaqPage, ContactoPage };

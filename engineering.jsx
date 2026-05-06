@@ -1,6 +1,9 @@
 // engineering.jsx — "Cabinet engineering" section, replaces the tiers block on home.
 // Technical-drawing aesthetic: exploded base cabinet with 6 numbered callouts.
 
+import React, { useState } from 'react'
+import { useLang, SectionHeader } from './components.jsx'
+
 const ENG_COPY = {
   es: {
     eyebrow: '— Ingeniería',
@@ -471,5 +474,4 @@ function EngineeringSection() {
   );
 }
 
-// Make globally available
-Object.assign(window, { EngineeringSection });
+export default EngineeringSection;

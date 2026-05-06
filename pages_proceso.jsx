@@ -1,5 +1,8 @@
 // pages_proceso.jsx — Process detail
 
+import React from 'react'
+import { useT, useRoute, SectionHeader, CTABlock } from './components.jsx'
+
 function ProcesoPage() {
   const t = useT();
   const { go } = useRoute();
@@ -177,4 +180,4 @@ function ProcesoPage() {
   );
 }
 
-window.ProcesoPage = ProcesoPage;
+export default ProcesoPage;

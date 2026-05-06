@@ -1,26 +1,32 @@
 // app.jsx — root component
 
-const { useState: useStateR, useEffect: useEffectR } = React;
+import React, { useState, useEffect } from 'react'
+import ReactDOM from 'react-dom/client'
+import { LangCtx, RouteCtx, Nav, Footer, TweaksPanel } from './components.jsx'
+import HomePage from './pages_home.jsx'
+import CocinasPage from './pages_cocinas.jsx'
+import ProcesoPage from './pages_proceso.jsx'
+import { TestimoniosPage, FaqPage, ContactoPage } from './pages_other.jsx'
 
 function App() {
-  const [lang, setLang] = useStateR(() => {
+  const [lang, setLang] = useState(() => {
     try { return localStorage.getItem('doig_lang') || (window.__TWEAK_DEFAULTS?.language || 'es'); }
     catch { return 'es'; }
   });
-  const [route, setRoute] = useStateR(() => {
+  const [route, setRoute] = useState(() => {
     try { return localStorage.getItem('doig_route') || 'home'; }
     catch { return 'home'; }
   });
-  const [tweaksVisible, setTweaksVisible] = useStateR(false);
+  const [tweaksVisible, setTweaksVisible] = useState(false);
 
-  useEffectR(() => { try { localStorage.setItem('doig_lang', lang); } catch {} }, [lang]);
-  useEffectR(() => {
+  useEffect(() => { try { localStorage.setItem('doig_lang', lang); } catch {} }, [lang]);
+  useEffect(() => {
     try { localStorage.setItem('doig_route', route); } catch {}
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [route]);
 
   // Edit mode protocol
-  useEffectR(() => {
+  useEffect(() => {
     const handler = (e) => {
       if (!e.data || typeof e.data !== 'object') return;
       if (e.data.type === '__activate_edit_mode') setTweaksVisible(true);
@@ -57,4 +63,4 @@ function App() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+export default App;

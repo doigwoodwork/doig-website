@@ -1,12 +1,14 @@
 // Kitchen Styles — interactive tab selector (home page)
 // Option C: 4 tabs up top, big content panel below. Responsive.
 
+import React, { useState, useEffect } from 'react'
+
 function KitchenStyles({ lang = 'es', go }) {
-  const [active, setActive] = React.useState(0);
-  const [imgIdx, setImgIdx] = React.useState(0);
+  const [active, setActive] = useState(0);
+  const [imgIdx, setImgIdx] = useState(0);
 
   // Reset image index when switching styles
-  React.useEffect(() => { setImgIdx(0); }, [active]);
+  useEffect(() => { setImgIdx(0); }, [active]);
 
   const STYLES = lang === 'en' ? [
     {
@@ -147,6 +149,9 @@ function KitchenStyles({ lang = 'es', go }) {
                 key={current.id + '-' + imgIdx}
                 src={current.images[imgIdx]}
                 alt={current.name}
+                loading="lazy"
+                width="800"
+                height="600"
                 className="ks-image"
               />
               <div className="ks-image-tag mono">0{active + 1} / 0{STYLES.length}</div>
@@ -161,7 +166,7 @@ function KitchenStyles({ lang = 'es', go }) {
                     aria-label={`Foto ${i + 1}`}
                     aria-selected={imgIdx === i}
                   >
-                    <img src={src} alt="" />
+                    <img src={src} alt="" loading="lazy" width="80" height="80" />
                   </button>
                 ))}
               </div>
@@ -197,4 +202,4 @@ function KitchenStyles({ lang = 'es', go }) {
   );
 }
 
-window.KitchenStyles = KitchenStyles;
+export default KitchenStyles;

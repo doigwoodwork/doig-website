@@ -1,6 +1,9 @@
 // pages_cocinas.jsx — Kitchen catalog organized by the 3 styles from home
 // Reuses copy and photos from KitchenStyles (kitchen_styles.jsx) so the story matches.
 
+import React, { useState } from 'react'
+import { useLang, useT, useRoute, CTABlock } from './components.jsx'
+
 function getStylesData(lang) {
   return lang === 'en' ? [
     {
@@ -250,6 +253,9 @@ function StyleSection({ style, copy, onCTA, index }) {
               key={style.id + '-' + mainIdx}
               src={style.images[mainIdx]}
               alt={style.name}
+              loading="lazy"
+              width="960"
+              height="720"
               style={{
                 position: 'absolute', inset: 0,
                 width: '100%', height: '100%', objectFit: 'cover',
@@ -287,7 +293,7 @@ function StyleSection({ style, copy, onCTA, index }) {
                 }}
                 aria-label={`Foto ${i + 1}`}
               >
-                <img src={src} alt="" style={{
+                <img src={src} alt="" loading="lazy" width="100" height="100" style={{
                   position: 'absolute', inset: 0,
                   width: '100%', height: '100%', objectFit: 'cover',
                 }}/>
@@ -351,4 +357,4 @@ function StyleSection({ style, copy, onCTA, index }) {
   );
 }
 
-window.CocinasPage = CocinasPage;
+export default CocinasPage;

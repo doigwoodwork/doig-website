@@ -1,7 +1,7 @@
 // data.jsx — content for the prototype (ES + EN)
 
 // Unsplash kitchen photos — placeholder until real Doig photos land
-const PHOTOS = {
+export const PHOTOS = {
   hero: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1400&q=80&auto=format&fit=crop',
   kitchen1: 'https://images.unsplash.com/photo-1556909114-44e3e9399a2e?w=1200&q=80&auto=format&fit=crop',
   kitchen2: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80&auto=format&fit=crop',
@@ -17,7 +17,7 @@ const PHOTOS = {
 };
 
 // Content dictionary — ES first, EN second
-const COPY = {
+export const COPY = {
   es: {
     tagline: 'cocinas bien hechas',
     nav: {
@@ -353,7 +353,7 @@ const COPY = {
 };
 
 // Materials — pulled from sales deck
-const MATERIALS = {
+export const MATERIALS = {
   wood: [
     { name: 'Birch Natural', klass: 'w-birch wood', tag: 'Tier AA/AAA' },
     { name: 'Encino Natural', klass: 'w-encino wood', tag: 'Popular' },
@@ -379,7 +379,7 @@ const MATERIALS = {
 };
 
 // Projects — gallery items
-const PROJECTS = [
+export const PROJECTS = [
   { id: 'liso-blanco', title: 'Liso Europeo Blanco', style: 'Estilo Liso', tier: 'Cocina AA', desc: 'Cocina chica con un acabado limpio y funcional para iluminar espacios pequeños.', img: PHOTOS.kitchen1, price: '$165,000 MXN', location: 'Tijuana' },
   { id: 'shaker-mixto', title: 'Shaker Encino & Blanco', style: 'Mixto Shaker', tier: 'Cocina AAA', desc: 'Una mezcla ganadora, elegida por familias que buscan elegancia y sencillez.', img: PHOTOS.kitchen2, price: '$420,000 MXN', location: 'Chula Vista' },
   { id: 'liso-nogal', title: 'Liso Nogal', style: 'Estilo Liso', tier: 'Cocina AAA', desc: 'Para cocinas de alta gama, el nogal le da una esencia natural a través de la vista y el olfato.', img: PHOTOS.kitchen3, price: '$580,000 MXN', location: 'Rosarito' },
@@ -388,4 +388,3 @@ const PROJECTS = [
   { id: 'melamina-roble', title: 'Melamina Roble Americano', style: 'Estilo Liso Moderno', tier: 'Cocina A', desc: 'La opción más vendida para proyectos de renta. Durabilidad y calidad en melamina.', img: PHOTOS.kitchen6, price: '$120,000 MXN', location: 'Tijuana' },
 ];
 
-Object.assign(window, { PHOTOS, COPY, MATERIALS, PROJECTS });
