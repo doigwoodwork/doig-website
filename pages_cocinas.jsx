@@ -3,6 +3,7 @@
 
 import React, { useState } from 'react'
 import { useLang, useT, useRoute, CTABlock } from './components.jsx'
+import { SEO } from './SEO.jsx'
 
 function getStylesData(lang) {
   return lang === 'en' ? [
@@ -143,6 +144,12 @@ function CocinasPage() {
 
   return (
     <div className="page-enter">
+      <SEO
+        title={lang === 'en' ? 'Custom Kitchen Styles — Modern, Shaker & Classic' : 'Cocinas Integrales a Medida — Lisa Moderna, Shaker y Clásica'}
+        description={lang === 'en' ? 'Choose your style: Modern, Shaker, or Classic Inset kitchen cabinets. All custom-built in Tijuana and installed across Baja California and San Diego.' : 'Elige tu estilo: Cocina Lisa Moderna, Shaker o Inset con Bastidor. Todas fabricadas a medida en Tijuana con materiales de primera calidad. Cotización sin costo.'}
+        canonical={lang === 'en' ? '/en/cocinas' : '/cocinas'}
+        lang={lang}
+      />
       {/* HERO */}
       <section className="section">
         <div className="page">

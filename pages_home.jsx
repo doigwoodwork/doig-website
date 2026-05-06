@@ -5,6 +5,7 @@ import { useLang, useT, useRoute, Img, SectionHeader, WAIcon, CTABlock, Marquee 
 import { PHOTOS } from './data.jsx'
 import KitchenStyles from './kitchen_styles.jsx'
 import EngineeringSection from './engineering.jsx'
+import { SEO } from './SEO.jsx'
 
 function HomePage() {
   const t = useT();
@@ -13,6 +14,12 @@ function HomePage() {
 
   return (
     <div className="page-enter">
+      <SEO
+        title={lang === 'en' ? 'Custom Kitchens Made in Tijuana — Design & Build' : 'Cocinas a Medida en Tijuana — Diseño y Fabricación'}
+        description={lang === 'en' ? 'Custom kitchen cabinets designed, built, and installed in Tijuana. Serving San Diego & Baja California. Free render design included. Get your quote today.' : 'Fabricamos cocinas integrales a la medida en Tijuana. Diseño, fabricación e instalación. Estilos Lisa Moderna, Shaker y Clásico. Solicita tu cotización gratis.'}
+        canonical={lang === 'en' ? '/en' : '/'}
+        lang={lang}
+      />
       {/* HERO */}
       <section className="hero">
         <div className="page">

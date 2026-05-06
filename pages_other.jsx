@@ -1,13 +1,21 @@
 // pages_other.jsx — Testimonios, FAQ, Contacto
 
 import React, { useState } from 'react'
-import { useT, useRoute, Img, WAIcon, CTABlock } from './components.jsx'
+import { useLang, useT, useRoute, Img, WAIcon, CTABlock } from './components.jsx'
 import { PROJECTS } from './data.jsx'
+import { SEO } from './SEO.jsx'
 
 function TestimoniosPage() {
   const t = useT();
+  const { lang } = useLang();
   return (
     <div className="page-enter">
+      <SEO
+        title={lang === 'en' ? 'Testimonials — Clients Who Trusted Doig Woodwork' : 'Testimonios — Clientes que Confiaron en Doig Woodwork'}
+        description={lang === 'en' ? 'Read experiences from families in Tijuana and San Diego who renovated their kitchen with Doig Woodwork. Real projects, real results.' : 'Lee las experiencias de familias en Tijuana y San Diego que renovaron su cocina con Doig Woodwork. Proyectos reales, resultados reales.'}
+        canonical={lang === 'en' ? '/en/testimonios' : '/testimonios'}
+        lang={lang}
+      />
       <section className="section">
         <div className="page">
           <div className="eyebrow" style={{ marginBottom: 24 }}>{t.testimonios.eyebrow}</div>
@@ -63,9 +71,16 @@ function TestimoniosPage() {
 
 function FaqPage() {
   const t = useT();
+  const { lang } = useLang();
   const [open, setOpen] = useState(0);
   return (
     <div className="page-enter">
+      <SEO
+        title={lang === 'en' ? 'FAQ — Custom Kitchen Questions Answered' : 'Preguntas Frecuentes — Cocinas a Medida'}
+        description={lang === 'en' ? 'Common questions about custom kitchens: timelines, pricing, materials, and installation. Everything you need to know before starting your project.' : 'Preguntas comunes sobre cocinas a medida: tiempos, precios, materiales e instalación. Todo lo que necesitas saber antes de iniciar tu proyecto.'}
+        canonical={lang === 'en' ? '/en/faq' : '/faq'}
+        lang={lang}
+      />
       <section className="section">
         <div className="page">
           <div className="eyebrow" style={{ marginBottom: 24 }}>{t.faq.eyebrow}</div>
@@ -104,6 +119,7 @@ const WEB3FORMS_KEY = 'c5559ddd-0463-4c7d-8247-336939a5a22d';
 
 function ContactoPage() {
   const t = useT();
+  const { lang } = useLang();
   const [tier, setTier] = useState(null);
   const [countryCode, setCountryCode] = useState('+52');
   const [submitted, setSubmitted] = useState(false);
@@ -145,6 +161,12 @@ function ContactoPage() {
 
   return (
     <div className="page-enter">
+      <SEO
+        title={lang === 'en' ? 'Contact — Request Your Custom Kitchen Quote' : 'Contacto — Solicita tu Cotización de Cocina a Medida'}
+        description={lang === 'en' ? 'Ready to renovate your kitchen? Contact us via WhatsApp or fill out the form. Serving Tijuana, San Diego, Mexicali, and Ensenada.' : '¿Lista para renovar tu cocina? Contáctanos por WhatsApp o llena el formulario. Atendemos Tijuana, San Diego, Mexicali y Ensenada.'}
+        canonical={lang === 'en' ? '/en/contacto' : '/contacto'}
+        lang={lang}
+      />
       <section className="section">
         <div className="page">
           <div className="eyebrow" style={{ marginBottom: 24 }}>{t.contactoPage.eyebrow}</div>

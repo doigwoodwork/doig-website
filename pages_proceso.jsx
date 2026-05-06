@@ -1,14 +1,22 @@
 // pages_proceso.jsx — Process detail
 
 import React from 'react'
-import { useT, useRoute, SectionHeader, CTABlock } from './components.jsx'
+import { useLang, useT, useRoute, SectionHeader, CTABlock } from './components.jsx'
+import { SEO } from './SEO.jsx'
 
 function ProcesoPage() {
   const t = useT();
+  const { lang } = useLang();
   const { go } = useRoute();
 
   return (
     <div className="page-enter">
+      <SEO
+        title={lang === 'en' ? 'Our Process — Custom Kitchen in 5 Steps' : 'Nuestro Proceso — De la Medición a la Instalación en 5 Pasos'}
+        description={lang === 'en' ? 'From measurements to installation: see how we design, build, and deliver your custom kitchen in Tijuana. Timeline, payment schedule, and warranty included.' : 'Así fabricamos tu cocina: visita de medición, diseño 3D, fabricación, instalación y garantía. Conoce el proceso completo y el esquema de pagos de Doig Woodwork.'}
+        canonical={lang === 'en' ? '/en/proceso' : '/proceso'}
+        lang={lang}
+      />
       <section className="section">
         <div className="page">
           <div className="eyebrow" style={{ marginBottom: 24 }}>{t.proceso.eyebrow}</div>
