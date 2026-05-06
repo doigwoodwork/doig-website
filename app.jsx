@@ -54,7 +54,9 @@ function App() {
       <RouteCtx.Provider value={{ route, go }}>
         <div data-screen-label={`${route}`}>
           <Nav />
-          <Page />
+          <main id="main-content">
+            <Page />
+          </main>
           <Footer />
           <TweaksPanel visible={tweaksVisible} onClose={() => setTweaksVisible(false)} />
         </div>

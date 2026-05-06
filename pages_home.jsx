@@ -38,7 +38,7 @@ function HomePage() {
             </div>
             <div>
               <Img src="images/hero.jpg" alt="Kitchen hero" aspect="4/5" label="Cocina destacada" />
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 16, fontFamily: 'var(--f-mono)', fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--ink-60)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 16, fontFamily: 'var(--f-mono)', fontSize: 12, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--ink)' }}>
                 <span>— Liso / Encino Shaker mixto</span>
                 <span>Rosarito ‘25</span>
               </div>
@@ -64,7 +64,7 @@ function HomePage() {
                 {t.manifesto.stats.map((s, i) => (
                   <div key={i} style={{ borderTop: '1px solid var(--line)', paddingTop: 16 }}>
                     <div className="display" style={{ fontSize: 'clamp(32px, 3.2vw, 44px)', lineHeight: 1, letterSpacing: '-0.01em' }}>{s.n}</div>
-                    <div className="mono" style={{ color: 'var(--ink-60)', marginTop: 16, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: 11 }}>{s.l}</div>
+                    <div className="mono" style={{ color: 'var(--ink)', marginTop: 16, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: 12 }}>{s.l}</div>
                   </div>
                 ))}
               </div>
@@ -93,8 +93,8 @@ function HomePage() {
             {t.proceso.phases.map((p, i) => (
               <div key={i} style={{ borderTop: '1px solid var(--ink)', paddingTop: 16 }}>
                 <div className="mono" style={{ color: 'var(--walnut)', fontWeight: 500 }}>{p.n}</div>
-                <h4 className="display-s" style={{ marginTop: 8, fontSize: 22, lineHeight: 1.15 }}>{p.title}</h4>
-                <div className="mono" style={{ marginTop: 16, color: 'var(--ink-60)', textTransform: 'uppercase', fontSize: 10, letterSpacing: '0.12em' }}>→ {p.deliverable}</div>
+                <h3 className="display-s" style={{ marginTop: 8, fontSize: 22, lineHeight: 1.15 }}>{p.title}</h3>
+                <div className="mono" style={{ marginTop: 16, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.12em' }}>→ {p.deliverable}</div>
               </div>
             ))}
           </div>

@@ -395,8 +395,8 @@ function EngineeringSection() {
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               borderBottom: '1px solid var(--line)', paddingBottom: 12, marginBottom: 16,
-              fontFamily: 'var(--f-mono)', fontSize: 11, textTransform: 'uppercase',
-              letterSpacing: '0.12em', color: 'var(--ink-60)',
+              fontFamily: 'var(--f-mono)', fontSize: 12, textTransform: 'uppercase',
+              letterSpacing: '0.12em', color: 'var(--ink-40)',
             }}>
               <span>Gabinete base · módulo estándar</span>
               <span>Rev. 2024</span>
@@ -412,8 +412,8 @@ function EngineeringSection() {
               {t.standards.map((s, i) => (
                 <div key={i}>
                   <div style={{
-                    fontFamily: 'var(--f-mono)', fontSize: 10, letterSpacing: '0.1em',
-                    textTransform: 'uppercase', color: 'var(--ink-60)', marginBottom: 6,
+                    fontFamily: 'var(--f-mono)', fontSize: 12, letterSpacing: '0.1em',
+                    textTransform: 'uppercase', color: 'var(--ink-40)', marginBottom: 6,
                   }}>{s.k}</div>
                   <div style={{ fontSize: 13, fontWeight: 500 }}>{s.v}</div>
                 </div>
@@ -424,8 +424,8 @@ function EngineeringSection() {
           {/* CALLOUT LIST */}
           <div>
             <div style={{
-              fontFamily: 'var(--f-mono)', fontSize: 11, textTransform: 'uppercase',
-              letterSpacing: '0.12em', color: 'var(--ink-60)', marginBottom: 20,
+              fontFamily: 'var(--f-mono)', fontSize: 12, textTransform: 'uppercase',
+              letterSpacing: '0.12em', color: 'var(--ink-40)', marginBottom: 20,
             }}>
               {t.specLabel}
             </div>
@@ -458,8 +458,8 @@ function EngineeringSection() {
                       <div style={{ fontSize: 14, color: 'var(--ink-70, #55524B)', lineHeight: 1.5 }}>{c.body}</div>
                     </div>
                     <div style={{
-                      fontFamily: 'var(--f-mono)', fontSize: 10, textTransform: 'uppercase',
-                      letterSpacing: '0.08em', color: 'var(--ink-60)', whiteSpace: 'nowrap',
+                      fontFamily: 'var(--f-mono)', fontSize: 12, textTransform: 'uppercase',
+                      letterSpacing: '0.08em', color: 'var(--ink-40)', whiteSpace: 'nowrap',
                       alignSelf: 'start', paddingTop: 3,
                     }}>{c.spec}</div>
                   </li>

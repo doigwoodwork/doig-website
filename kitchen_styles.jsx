@@ -161,6 +161,7 @@ function KitchenStyles({ lang = 'es', go }) {
                 {current.images.map((src, i) => (
                   <button
                     key={i}
+                    role="tab"
                     className={`ks-thumb ${imgIdx === i ? 'is-active' : ''}`}
                     onClick={() => setImgIdx(i)}
                     aria-label={`Foto ${i + 1}`}

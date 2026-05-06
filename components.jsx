@@ -122,7 +122,7 @@ export function Footer() {
             </div>
           </div>
           <div>
-            <h4>{t.footer.nav}</h4>
+            <h3>{t.footer.nav}</h3>
             <ul>
               <li><a href="#" onClick={(e) => { e.preventDefault(); go('home'); }}>{t.nav.home}</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); go('cocinas'); }}>{t.nav.cocinas}</a></li>
@@ -132,7 +132,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4>{t.footer.contact}</h4>
+            <h3>{t.footer.contact}</h3>
             <ul>
               <li><a href="tel:+526644987845">+52 664 498 7845</a></li>
               <li><a href="mailto:doigwoodwork@gmail.com">doigwoodwork@gmail.com</a></li>
@@ -140,7 +140,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4>{t.footer.social}</h4>
+            <h3>{t.footer.social}</h3>
             <ul>
               <li><a href="https://instagram.com/doigwoodwork" target="_blank" rel="noopener">Instagram</a></li>
               <li><a href="https://facebook.com/doigwoodwork" target="_blank" rel="noopener">Facebook</a></li>
@@ -318,7 +318,7 @@ export function TweaksPanel({ visible, onClose }) {
         </select>
       </div>
 
-      <div style={{ fontSize: 11, color: 'var(--ink-60)', marginTop: 16, lineHeight: 1.4, fontFamily: 'var(--f-mono)' }}>
+      <div style={{ fontSize: 12, color: 'var(--ink-40)', marginTop: 16, lineHeight: 1.4, fontFamily: 'var(--f-mono)' }}>
         Tweaks are visible only when the "Tweaks" toolbar toggle is on.
       </div>
     </div>

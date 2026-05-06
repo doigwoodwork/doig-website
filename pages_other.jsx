@@ -235,15 +235,15 @@ function ContactoPage() {
               <div className="eyebrow" style={{ marginBottom: 16 }}>{t.contactoPage.directContact}</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--s-5)' }}>
                 <div>
-                  <div className="mono" style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-60)' }}>{t.contactoPage.whatsapp}</div>
+                  <div className="mono" style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-40)' }}>{t.contactoPage.whatsapp}</div>
                   <a href="https://wa.me/526644987845" className="display-s" style={{ fontSize: 22 }}>+52 664 498 7845</a>
                 </div>
                 <div>
-                  <div className="mono" style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-60)' }}>{t.contactoPage.email}</div>
+                  <div className="mono" style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-40)' }}>{t.contactoPage.email}</div>
                   <a href="mailto:doigwoodwork@gmail.com" style={{ fontSize: 15 }}>doigwoodwork@gmail.com</a>
                 </div>
                 <div>
-                  <div className="mono" style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-60)' }}>{t.contactoPage.workshop}</div>
+                  <div className="mono" style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-40)' }}>{t.contactoPage.workshop}</div>
                   <div style={{ fontSize: 15 }}>Tijuana, Baja California</div>
                   <div className="small">{t.contactoPage.hours}</div>
                 </div>

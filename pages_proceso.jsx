@@ -25,8 +25,8 @@ function ProcesoPage() {
             <div className="phase-card" key={i}>
               <div className="phase-num">{p.n}</div>
               <div>
-                <h3 className="display-m" style={{ margin: 0 }}>{p.title}</h3>
-                <div className="mono" style={{ marginTop: 12, color: 'var(--ink-60)', textTransform: 'uppercase', fontSize: 10, letterSpacing: '0.12em' }}>
+                <h2 className="display-m" style={{ margin: 0 }}>{p.title}</h2>
+                <div className="mono" style={{ marginTop: 12, color: 'var(--ink-40)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.12em' }}>
                   {t.procesoPage.deliverableLabel} → {p.deliverable}
                 </div>
               </div>
@@ -54,7 +54,7 @@ function ProcesoPage() {
 
             {/* LEFT — schedule */}
             <div>
-              <div className="mono" style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'var(--ink-60)', marginBottom: 24 }}>
+              <div className="mono" style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'var(--ink-40)', marginBottom: 24 }}>
                 {t.procesoPage.scheduleLabel}
               </div>
               <div style={{ display: 'grid', gap: 0, border: '1px solid var(--ink)' }}>
@@ -78,7 +78,7 @@ function ProcesoPage() {
 
             {/* RIGHT — methods */}
             <div>
-              <div className="mono" style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'var(--ink-60)', marginBottom: 24 }}>
+              <div className="mono" style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'var(--ink-40)', marginBottom: 24 }}>
                 {t.procesoPage.methodsLabel}
               </div>
               <div style={{ display: 'grid', gap: 12 }}>
@@ -167,7 +167,7 @@ function ProcesoPage() {
           <div className="warranty-grid">
             {t.procesoPage.warranties.map((s, i) => (
               <div key={i} style={{ borderTop: '1px solid var(--line)', paddingTop: 16 }}>
-                <h4 className="display-s" style={{ margin: 0 }}>{s.k}</h4>
+                <h3 className="display-s" style={{ margin: 0 }}>{s.k}</h3>
                 <div style={{ marginTop: 8, color: 'var(--ink-60)' }}>{s.d}</div>
               </div>
             ))}
