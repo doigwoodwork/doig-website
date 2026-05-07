@@ -2,7 +2,7 @@ import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
 
-const IMAGES_DIR = './images';
+const IMAGES_DIR = './public/images';
 const MAX_WIDTH = 1920;
 const QUALITY = 80;
 

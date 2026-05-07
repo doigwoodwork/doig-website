@@ -44,7 +44,7 @@ function HomePage() {
               </div>
             </div>
             <div>
-              <Img src="images/hero.jpg" alt="Kitchen hero" aspect="4/5" label="Cocina destacada" />
+              <Img src="/images/hero.jpg" alt="Kitchen hero" aspect="4/5" label="Cocina destacada" />
               <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 16, fontFamily: 'var(--f-mono)', fontSize: 12, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--ink)' }}>
                 <span>— Liso / Encino Shaker mixto</span>
                 <span>Rosarito ‘25</span>
