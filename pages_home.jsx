@@ -44,7 +44,16 @@ function HomePage() {
               </div>
             </div>
             <div>
-              <Img src="/images/hero.jpg" alt="Kitchen hero" aspect="4/5" label="Cocina destacada" />
+              <div className="img-frame" style={{ aspectRatio: '4/5' }}>
+                <img
+                  src="/images/hero.webp"
+                  alt="Cocina integral a la medida fabricada en Tijuana por Doig Woodwork"
+                  fetchPriority="high"
+                  width="800"
+                  height="1000"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 16, fontFamily: 'var(--f-mono)', fontSize: 12, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--ink)' }}>
                 <span>— Liso / Encino Shaker mixto</span>
                 <span>Rosarito ‘25</span>
@@ -112,7 +121,7 @@ function HomePage() {
       <section className="section" style={{ background: 'var(--bone-50)' }}>
         <div className="page">
           <div className="testimonial-grid">
-            <Img src={t.testimonios.list[0].img || PHOTOS.kitchen2} alt={t.testimonios.list[0].author} aspect="3/4" label="Cliente" />
+            <Img src={t.testimonios.list[0].img || PHOTOS.kitchen2} alt={`Cocina a medida en Tijuana — testimonio de ${t.testimonios.list[0].author}`} aspect="3/4" label="Cliente satisfecho Doig Woodwork" />
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <div className="eyebrow" style={{ marginBottom: 24 }}>— Testimonios</div>
               <blockquote style={{

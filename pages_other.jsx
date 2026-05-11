@@ -35,7 +35,7 @@ function TestimoniosPage() {
             }}>
               {i % 2 === 0 ? (
                 <>
-                  <Img src={it.img || PROJECTS[i % PROJECTS.length].img} alt={it.author} aspect="4/5" />
+                  <Img src={it.img || PROJECTS[i % PROJECTS.length].img} alt={`${it.author} — cliente Doig Woodwork Tijuana`} aspect="4/5" />
                   <div>
                     <blockquote className="quote" style={{ margin: 0 }}>
                       <span style={{ color: 'var(--walnut)' }}>“</span>{it.quote}<span style={{ color: 'var(--walnut)' }}>”</span>
@@ -57,7 +57,7 @@ function TestimoniosPage() {
                       <div className="small">{it.project}</div>
                     </div>
                   </div>
-                  <Img src={it.img || PROJECTS[(i + 1) % PROJECTS.length].img} alt={it.author} aspect="4/5" />
+                  <Img src={it.img || PROJECTS[(i + 1) % PROJECTS.length].img} alt={`${it.author} — cliente Doig Woodwork Tijuana`} aspect="4/5" />
                 </>
               )}
             </div>

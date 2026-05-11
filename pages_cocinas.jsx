@@ -12,7 +12,7 @@ function getStylesData(lang) {
       num: '01',
       name: 'Flat Modern',
       tagline: 'Clean, handleless, minimalist.',
-      images: ['/images/lisa-moderna-01.jpg', '/images/lisa-moderna-03.jpg', '/images/lisa-moderna-04.jpg', '/images/lisa-moderna-05.jpg'],
+      images: ['/images/lisa-moderna-01.webp', '/images/lisa-moderna-03.webp', '/images/lisa-moderna-04.webp', '/images/lisa-moderna-05.webp'],
       description: 'Doors with no moldings or frames. The cleanest, most contemporary look — where the kitchen reads as a single continuous surface. Ideal for open-plan homes and anyone who wants the kitchen to disappear into the architecture.',
       features: [
         'Flat, frameless door',
@@ -27,7 +27,7 @@ function getStylesData(lang) {
       num: '02',
       name: 'Regular Shaker',
       tagline: 'Timeless, classic, warm.',
-      images: ['/images/shaker-regular-03.jpg', '/images/shaker-regular-04.jpg', '/images/shaker-regular-00.jpg', '/images/shaker-regular-01.jpg'],
+      images: ['/images/shaker-regular-03.webp', '/images/shaker-regular-04.webp', '/images/shaker-regular-00.webp', '/images/shaker-regular-01.webp'],
       description: 'The most recognized style in the world. A flat center panel surrounded by a raised frame, usually 2–3" wide. Balanced between traditional and transitional — it dresses up without feeling fussy. A safe, lasting choice.',
       features: [
         'Framed center panel (2–3" frame)',
@@ -42,7 +42,7 @@ function getStylesData(lang) {
       num: '03',
       name: 'Inset with Frame',
       tagline: 'Heritage craftsmanship.',
-      images: ['/images/inset-00.jpg', '/images/inset-01.jpg', '/images/inset-02.jpg', '/images/inset-03.jpg'],
+      images: ['/images/inset-00.webp', '/images/inset-01.webp', '/images/inset-02.webp', '/images/inset-03.webp'],
       description: 'The most demanding construction we offer. The door sits flush inside a visible face-frame — tolerances are measured in millimeters. Highest-end look, references American heritage cabinetry. The choice for a project where the kitchen is the hero.',
       features: [
         'Door inset flush with face-frame',
@@ -58,7 +58,7 @@ function getStylesData(lang) {
       num: '01',
       name: 'Cocina Lisa Moderna',
       tagline: 'Limpia, sin manijas, minimalista.',
-      images: ['/images/lisa-moderna-01.jpg', '/images/lisa-moderna-03.jpg', '/images/lisa-moderna-04.jpg', '/images/lisa-moderna-05.jpg'],
+      images: ['/images/lisa-moderna-01.webp', '/images/lisa-moderna-03.webp', '/images/lisa-moderna-04.webp', '/images/lisa-moderna-05.webp'],
       description: 'Puertas sin molduras ni marcos. Un look más moderno — la cocina se ve como una superficie continua. Ideal para espacios abiertos y para quien quiere que la cocina se integre al resto de la arquitectura.',
       features: [
         'Puerta lisa, sin marcos',
@@ -73,7 +73,7 @@ function getStylesData(lang) {
       num: '02',
       name: 'Cocina Shaker Regular',
       tagline: 'Atemporal, clásica, cálida.',
-      images: ['/images/shaker-regular-03.jpg', '/images/shaker-regular-04.jpg', '/images/shaker-regular-00.jpg', '/images/shaker-regular-01.jpg'],
+      images: ['/images/shaker-regular-03.webp', '/images/shaker-regular-04.webp', '/images/shaker-regular-00.webp', '/images/shaker-regular-01.webp'],
       description: 'El estilo más reconocido del mundo. Panel central plano rodeado de un marco resaltado, normalmente de 5–7 cm. Equilibrado entre tradicional y transicional — se ve elegante sin sentirse recargado. Una apuesta segura y duradera.',
       features: [
         'Panel central con marco (5cm/2in)',
@@ -88,7 +88,7 @@ function getStylesData(lang) {
       num: '03',
       name: 'Cocina Inset con Bastidor',
       tagline: 'Carpintería de alta gama.',
-      images: ['/images/inset-00.jpg', '/images/inset-01.jpg', '/images/inset-02.jpg', '/images/inset-03.jpg'],
+      images: ['/images/inset-00.webp', '/images/inset-01.webp', '/images/inset-02.webp', '/images/inset-03.webp'],
       description: 'La construcción más exigente que fabricamos. La puerta se coloca a ras dentro de un bastidor visible — las tolerancias se miden en milímetros. El look más alto de gama, referencia la carpintería americana de herencia. Para proyectos donde la cocina es la protagonista.',
       features: [
         'Puerta a ras con el bastidor',
@@ -259,7 +259,7 @@ function StyleSection({ style, copy, onCTA, index }) {
             <img
               key={style.id + '-' + mainIdx}
               src={style.images[mainIdx]}
-              alt={style.name}
+              alt={`${style.name} — cocina integral a medida fabricada en Tijuana`}
               loading="lazy"
               width="960"
               height="720"

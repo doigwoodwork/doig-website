@@ -4,7 +4,7 @@ import { join } from 'path';
 
 const dir = 'public/images';
 const files = await readdir(dir);
-const images = files.filter(f => /\.(jpg|jpeg|png|webp)$/i.test(f));
+const images = files.filter(f => /\.(jpg|jpeg|png)$/i.test(f));
 
 for (const file of images) {
   const path = join(dir, file);
