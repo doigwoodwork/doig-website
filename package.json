@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "fix-images": "node scripts/fix-image-orientation.js",
-    "build": "node scripts/fix-image-orientation.js && vite build",
+    "build": "node scripts/fix-image-orientation.js && vite build && vite build --mode ssr && node scripts/prerender.js",
     "preview": "vite preview"
   },
   "repository": {
