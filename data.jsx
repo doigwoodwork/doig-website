@@ -35,7 +35,7 @@ export const COPY = {
       line2: 'bien',
       line3: 'hechas',
       sub: 'Diseño, fabricación e instalación de cocinas a la medida. Un proceso comprobado para un resultado impecable — desde la primera visita hasta la entrega final.',
-      primary: 'Cotiza por WhatsApp',
+      primary: 'Agenda tu cotización',
       secondary: 'Ver proceso',
     },
     manifesto: {
@@ -107,8 +107,8 @@ export const COPY = {
       eyebrow: '— Siguiente paso',
       headline: 'Agenda una visita.',
       body: 'Sin compromiso. Vamos, medimos, escuchamos, y te entregamos cotización para tu cocina.',
-      primary: 'Escribir por WhatsApp',
-      secondary: 'Agendar llamada',
+      primary: 'Agenda tu cotización',
+      secondary: 'Agenda tu cotización',
     },
     contact: {
       title: 'Cuéntanos sobre tu proyecto',
@@ -235,7 +235,7 @@ export const COPY = {
       line2: 'made',
       line3: 'kitchens.',
       sub: 'Design, build and install of custom kitchens. A proven process for a flawless result — from the first site visit to the final walkthrough.',
-      primary: 'Quote on WhatsApp',
+      primary: 'Schedule your quote',
       secondary: 'See process',
     },
     manifesto: {
@@ -273,7 +273,7 @@ export const COPY = {
     },
     materials: { eyebrow: '— Styles & finishes', headline: 'Woods, melamines and stains.', body: 'Fronts are what dress your kitchen. We choose materials for durability, look and budget — from hard-wearing melamines to solid wood with custom staining.' },
     gallery: { eyebrow: '— Projects', headline: 'Recent kitchens.', body: 'A handful of projects we\'ve finished for our clients. Each with its own decisions on style, finish and function.', cta: 'View all' },
-    cta: { eyebrow: '— Next step', headline: 'Book a visit.', body: 'No commitment. We come out, measure, listen, and hand back a preliminary quote.', primary: 'Message on WhatsApp', secondary: 'Schedule a call' },
+    cta: { eyebrow: '— Next step', headline: 'Book a visit.', body: 'No commitment. We come out, measure, listen, and hand back a preliminary quote.', primary: 'Schedule your quote', secondary: 'Schedule your quote' },
     contact: { title: 'Tell us about your project', sub: 'We respond within 24 hours. Prefer WhatsApp? We can start there.', fields: { name: 'Name', email: 'Email', phone: 'Phone', city: 'City', tier: 'Which kitchen style are you considering?', size: 'Approximate size', msg: 'Tell us more' }, chips: ['Flat Modern', 'Regular Shaker', 'Inset with Frame', 'Not sure yet'], submit: 'Send request', or: 'or' },
     faq: { eyebrow: '— FAQ', headline: 'What we\'re often asked.', items: [
       { q: 'How long does a full project take?', a: 'From preliminary quote to final install, a Kitchen A takes 6-8 weeks. A Kitchen AA takes 8-12 weeks. A Kitchen AAA can take 12-20 weeks depending on complexity and materials.' },
