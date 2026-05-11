@@ -178,7 +178,10 @@ function ContactoPage() {
   const sessionId = React.useRef(getSessionId());
 
   React.useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (messagesEndRef.current) {
+      const container = messagesEndRef.current.parentElement;
+      if (container) container.scrollTop = container.scrollHeight;
+    }
   }, [messages, busy]);
 
   React.useEffect(() => {
@@ -365,7 +368,7 @@ function ContactoPage() {
               ))}
             </div>
 
-            <div style={{ padding: 'var(--s-4) var(--s-5)', display: 'flex', flexDirection: 'column', gap: 'var(--s-3)', minHeight: 220 }}>
+            <div style={{ padding: 'var(--s-4) var(--s-5)', display: 'flex', flexDirection: 'column', gap: 'var(--s-3)', height: 280, overflowY: 'auto' }}>
               {messages.map((msg, i) => (
                 <div key={i} style={{ display: 'flex', justifyContent: msg.from === 'user' ? 'flex-end' : 'flex-start', alignItems: 'flex-end', gap: 8 }}>
                   {msg.from === 'bot' && (
@@ -429,98 +432,93 @@ function ContactoPage() {
               <div ref={messagesEndRef} />
             </div>
 
-            {!done && !busy && currentStepData && (
-              <div style={{ borderTop: '1px solid var(--line)', padding: 'var(--s-3) var(--s-5)' }}>
-
-                {currentStepData.type === 'phone' && (
-                  <>
-                    <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-                      <select
-                        className="input"
-                        value={countryCode}
-                        onChange={e => setCountryCode(e.target.value)}
-                        style={{ width: 100, flexShrink: 0, padding: '10px 8px', fontSize: 13 }}
-                      >
-                        {COUNTRY_CODES.map(c => (
-                          <option key={c.code} value={c.code}>{c.flag} {c.label}</option>
-                        ))}
-                      </select>
-                      <input
-                        className="input"
-                        type="tel"
-                        value={phoneNum}
-                        onChange={e => setPhoneNum(e.target.value)}
-                        placeholder={currentStepData.ph}
-                        style={{ flex: 1, padding: '10px 14px', fontSize: 14, borderRadius: 0 }}
-                        onKeyDown={e => e.key === 'Enter' && phoneNum.trim() && handleAnswer(countryCode + ' ' + phoneNum.trim())}
-                        autoFocus
-                      />
-                      <button
-                        className="btn btn-primary btn-sm"
-                        onClick={() => phoneNum.trim() && handleAnswer(countryCode + ' ' + phoneNum.trim())}
-                        style={{ borderRadius: 999, flexShrink: 0 }}
-                      >
-                        →
-                      </button>
-                    </div>
-                    <p className="small" style={{ color: 'var(--ink-60)', marginTop: 6 }}>
-                      {lang === 'en' ? 'We\'ll write to you here to confirm your appointment' : 'Te escribiremos aquí para confirmar tu cita'}
-                    </p>
-                  </>
-                )}
-
-                {currentStepData.type === 'text' && (
+            <div style={{ borderTop: '1px solid var(--line)', padding: 'var(--s-3) var(--s-5)', minHeight: 64, visibility: (!done && !busy && currentStepData) ? 'visible' : 'hidden' }}>
+              {currentStepData && currentStepData.type === 'phone' && (
+                <>
                   <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                    <select
+                      className="input"
+                      value={countryCode}
+                      onChange={e => setCountryCode(e.target.value)}
+                      style={{ width: 100, flexShrink: 0, padding: '10px 8px', fontSize: 13 }}
+                    >
+                      {COUNTRY_CODES.map(c => (
+                        <option key={c.code} value={c.code}>{c.flag} {c.label}</option>
+                      ))}
+                    </select>
                     <input
                       className="input"
-                      type={currentStepData.key === 'email' ? 'email' : 'text'}
-                      value={textVal}
-                      onChange={e => setTextVal(e.target.value)}
+                      type="tel"
+                      value={phoneNum}
+                      onChange={e => setPhoneNum(e.target.value)}
                       placeholder={currentStepData.ph}
                       style={{ flex: 1, padding: '10px 14px', fontSize: 14, borderRadius: 0 }}
-                      onKeyDown={e => e.key === 'Enter' && textVal.trim() && handleAnswer(textVal.trim())}
+                      onKeyDown={e => e.key === 'Enter' && phoneNum.trim() && handleAnswer(countryCode + ' ' + phoneNum.trim())}
                       autoFocus
                     />
                     <button
                       className="btn btn-primary btn-sm"
-                      onClick={() => textVal.trim() && handleAnswer(textVal.trim())}
+                      onClick={() => phoneNum.trim() && handleAnswer(countryCode + ' ' + phoneNum.trim())}
                       style={{ borderRadius: 999, flexShrink: 0 }}
                     >
                       →
                     </button>
                   </div>
-                )}
-
-                {currentStepData.type === 'chips' && (
-                  <>
-                    <div className="chip-group" style={{ marginBottom: currentStepData.ph ? 'var(--s-3)' : 0 }}>
-                      {currentStepData.chips.map(c => (
-                        <button key={c} className="chip" onClick={() => handleAnswer(c)}>{c}</button>
-                      ))}
+                  <p className="small" style={{ color: 'var(--ink-60)', marginTop: 6 }}>
+                    {lang === 'en' ? 'We\'ll write to you here to confirm your appointment' : 'Te escribiremos aquí para confirmar tu cita'}
+                  </p>
+                </>
+              )}
+              {currentStepData && currentStepData.type === 'text' && (
+                <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                  <input
+                    className="input"
+                    type={currentStepData.key === 'email' ? 'email' : 'text'}
+                    value={textVal}
+                    onChange={e => setTextVal(e.target.value)}
+                    placeholder={currentStepData.ph}
+                    style={{ flex: 1, padding: '10px 14px', fontSize: 14, borderRadius: 0 }}
+                    onKeyDown={e => e.key === 'Enter' && textVal.trim() && handleAnswer(textVal.trim())}
+                    autoFocus
+                  />
+                  <button
+                    className="btn btn-primary btn-sm"
+                    onClick={() => textVal.trim() && handleAnswer(textVal.trim())}
+                    style={{ borderRadius: 999, flexShrink: 0 }}
+                  >
+                    →
+                  </button>
+                </div>
+              )}
+              {currentStepData && currentStepData.type === 'chips' && (
+                <>
+                  <div className="chip-group" style={{ marginBottom: currentStepData.ph ? 'var(--s-3)' : 0 }}>
+                    {currentStepData.chips.map(c => (
+                      <button key={c} className="chip" onClick={() => handleAnswer(c)}>{c}</button>
+                    ))}
+                  </div>
+                  {currentStepData.ph && (
+                    <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginTop: 'var(--s-3)' }}>
+                      <input
+                        className="input"
+                        value={textVal}
+                        onChange={e => setTextVal(e.target.value)}
+                        placeholder={currentStepData.ph}
+                        style={{ flex: 1, padding: '10px 14px', fontSize: 14, borderRadius: 0 }}
+                        onKeyDown={e => e.key === 'Enter' && textVal.trim() && handleAnswer(textVal.trim())}
+                      />
+                      <button
+                        className="btn btn-primary btn-sm"
+                        onClick={() => textVal.trim() && handleAnswer(textVal.trim())}
+                        style={{ borderRadius: 999, flexShrink: 0 }}
+                      >
+                        →
+                      </button>
                     </div>
-                    {currentStepData.ph && (
-                      <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginTop: 'var(--s-3)' }}>
-                        <input
-                          className="input"
-                          value={textVal}
-                          onChange={e => setTextVal(e.target.value)}
-                          placeholder={currentStepData.ph}
-                          style={{ flex: 1, padding: '10px 14px', fontSize: 14, borderRadius: 0 }}
-                          onKeyDown={e => e.key === 'Enter' && textVal.trim() && handleAnswer(textVal.trim())}
-                        />
-                        <button
-                          className="btn btn-primary btn-sm"
-                          onClick={() => textVal.trim() && handleAnswer(textVal.trim())}
-                          style={{ borderRadius: 999, flexShrink: 0 }}
-                        >
-                          →
-                        </button>
-                      </div>
-                    )}
-                  </>
-                )}
-              </div>
-            )}
+                  )}
+                </>
+              )}
+            </div>
           </div>
 
           <div style={{ marginTop: 'var(--s-8)', paddingTop: 'var(--s-7)', borderTop: '1px solid var(--line)' }}>
