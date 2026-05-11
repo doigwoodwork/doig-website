@@ -124,4 +124,24 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Closets ES -->
+  <url>
+    <loc>https://www.doigwoodwork.com/closets</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.doigwoodwork.com/closets"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.doigwoodwork.com/en/closets"/>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Closets EN -->
+  <url>
+    <loc>https://www.doigwoodwork.com/en/closets</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.doigwoodwork.com/closets"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.doigwoodwork.com/en/closets"/>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

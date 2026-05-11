@@ -24,6 +24,7 @@ export function Nav() {
   const items = [
     { k: 'home', l: t.nav.home },
     { k: 'cocinas', l: t.nav.cocinas },
+    { k: 'closets', l: t.nav.closets },
     { k: 'proceso', l: t.nav.proceso },
     { k: 'testimonios', l: t.nav.testimonios },
     // { k: 'faq', l: t.nav.faq }, // oculto temporalmente — pendiente mejoras

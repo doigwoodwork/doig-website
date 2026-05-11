@@ -12,6 +12,7 @@ import HomePage from './pages_home.jsx'
 import CocinasPage from './pages_cocinas.jsx'
 import ProcesoPage from './pages_proceso.jsx'
 import { TestimoniosPage, FaqPage, ContactoPage } from './pages_other.jsx'
+import ClosetsPage from './pages_closets.jsx'
 
 // Polyfill mínimo para que componentes que leen window no exploten en Node
 if (typeof window === 'undefined') {
@@ -34,6 +35,7 @@ if (typeof window === 'undefined') {
 const PAGE_MAP = {
   home: HomePage,
   cocinas: CocinasPage,
+  closets: ClosetsPage,
   proceso: ProcesoPage,
   testimonios: TestimoniosPage,
   faq: FaqPage,

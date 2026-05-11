@@ -7,6 +7,7 @@ import HomePage from './pages_home.jsx'
 import CocinasPage from './pages_cocinas.jsx'
 import ProcesoPage from './pages_proceso.jsx'
 import { TestimoniosPage, FaqPage, ContactoPage } from './pages_other.jsx'
+import ClosetsPage from './pages_closets.jsx'
 
 // Parse URL to get initial route and language
 function parseURL() {
@@ -23,7 +24,7 @@ function parseURL() {
   }
 
   // Map remaining path to route
-  const validRoutes = ['cocinas', 'proceso', 'testimonios', 'faq', 'contacto'];
+  const validRoutes = ['cocinas', 'closets', 'proceso', 'testimonios', 'faq', 'contacto'];
   if (segments[0] && validRoutes.includes(segments[0])) {
     route = segments[0];
   }
@@ -98,6 +99,7 @@ function App() {
     case 'testimonios': Page = TestimoniosPage; break;
     case 'faq': Page = FaqPage; break;
     case 'contacto': Page = ContactoPage; break;
+    case 'closets': Page = ClosetsPage; break;
     default: Page = HomePage;
   }
 

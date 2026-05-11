@@ -23,6 +23,7 @@ export const COPY = {
     nav: {
       home: 'Inicio',
       cocinas: 'Cocinas',
+      closets: 'Closets',
       proceso: 'Proceso',
       testimonios: 'Testimonios',
       faq: 'Preguntas',
@@ -227,7 +228,7 @@ export const COPY = {
 
   en: {
     tagline: 'well-made kitchens',
-    nav: { home: 'Home', cocinas: 'Kitchens', proceso: 'Process', testimonios: 'Reviews', faq: 'FAQ', contacto: 'Quote' },
+    nav: { home: 'Home', cocinas: 'Kitchens', closets: 'Closets', proceso: 'Process', testimonios: 'Reviews', faq: 'FAQ', contacto: 'Quote' },
     hero: {
       eyebrow: 'Est. 2019 · Tijuana, B.C.',
       line1: 'Well',
