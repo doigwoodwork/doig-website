@@ -35,9 +35,9 @@ function HomePage() {
               </h1>
               <p className="lead" style={{ marginTop: 32, maxWidth: '52ch' }}>{t.hero.sub}</p>
               <div style={{ display: 'flex', gap: 12, marginTop: 40, flexWrap: 'wrap' }}>
-                <a href="https://wa.me/526644987845" target="_blank" className="btn btn-wa btn-lg">
-                  <WAIcon /> {t.hero.primary}
-                </a>
+                <button className="btn btn-primary btn-lg" onClick={() => go('contacto')}>
+                  {t.hero.primary} <span className="arrow">→</span>
+                </button>
                 <button className="btn btn-ghost btn-lg" onClick={() => go('proceso')}>
                   {t.hero.secondary} <span className="arrow">→</span>
                 </button>

@@ -214,11 +214,8 @@ export function CTABlock() {
             <h2 className="display-l" style={{ margin: 0, color: 'var(--bone)' }}>{t.cta.headline}</h2>
             <p className="body-l" style={{ color: 'var(--bone-200)', marginTop: 24, maxWidth: '48ch' }}>{t.cta.body}</p>
             <div style={{ display: 'flex', gap: 12, marginTop: 32, flexWrap: 'wrap' }}>
-              <a href="https://wa.me/526644987845" target="_blank" className="btn btn-wa btn-lg">
-                <WAIcon /> {t.cta.primary}
-              </a>
-              <button className="btn btn-ghost btn-lg" onClick={() => go('contacto')} style={{ color: 'var(--bone)', borderColor: 'rgba(242,237,228,0.3)' }}>
-                {t.cta.secondary} <span className="arrow">→</span>
+              <button className="btn btn-primary btn-lg" onClick={() => go('contacto')} style={{ background: 'var(--bone)', color: 'var(--ink)' }}>
+                {t.cta.primary} <span className="arrow">→</span>
               </button>
             </div>
           </div>
