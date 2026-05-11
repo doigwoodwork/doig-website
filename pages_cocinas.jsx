@@ -265,7 +265,7 @@ function StyleSection({ style, copy, onCTA, index }) {
               height="720"
               style={{
                 position: 'absolute', inset: 0,
-                width: '100%', height: '100%', objectFit: 'cover',
+                width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center',
                 animation: 'fadeIn 400ms ease',
               }}
             />
@@ -302,7 +302,7 @@ function StyleSection({ style, copy, onCTA, index }) {
               >
                 <img src={src} alt="" loading="lazy" width="100" height="100" style={{
                   position: 'absolute', inset: 0,
-                  width: '100%', height: '100%', objectFit: 'cover',
+                  width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center',
                 }}/>
               </button>
             ))}
