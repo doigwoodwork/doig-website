@@ -303,7 +303,7 @@ function ContactoPage() {
           <h1 className="display-xl" style={{ margin: 0 }}>
             {lang === 'en' ? 'Schedule your quote.' : 'Agenda tu cotización.'}
           </h1>
-          <p className="display-s" style={{ margin: 'var(--s-3) 0 0', color: 'var(--ink-60)', fontStyle: 'italic' }}>
+          <p className="display-s" style={{ margin: '4px 0 0', color: 'var(--ink-60)', fontStyle: 'italic' }}>
             {lang === 'en' ? 'At home or at our office.' : 'A domicilio o en nuestras oficinas.'}
           </p>
           <p className="lead" style={{ marginTop: 'var(--s-5)', maxWidth: '52ch' }}>
