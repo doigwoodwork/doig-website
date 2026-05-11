@@ -127,26 +127,97 @@ function ContactoPage() {
   const t = useT();
   const { lang } = useLang();
 
+  const CITY_REACTIONS_ES = {
+    'Tijuana':   'Perfecto, trabajamos mucho en Tijuana.',
+    'Rosarito':  'Buena zona, tenemos varios proyectos en Rosarito.',
+    'Ensenada':  'Ensenada, anotado — hacemos entregas allá.',
+    'San Diego': '¡San Diego! Genial, también trabajamos al otro lado.',
+    'Mexicali':  'Mexicali, con gusto — coordinamos el proyecto sin problema.',
+    'Otra':      'Sin problema, cuéntame más cuando hablemos.',
+  };
+  const CITY_REACTIONS_EN = {
+    'Tijuana':   'Great, we work a lot in Tijuana.',
+    'Rosarito':  'Nice area, we have several projects in Rosarito.',
+    'Ensenada':  'Ensenada, got it — we deliver there.',
+    'San Diego': 'San Diego! Perfect, we also work on that side.',
+    'Mexicali':  'Mexicali, no problem — we coordinate remotely.',
+    'Other':     'No problem, tell me more when we talk.',
+  };
+  const PROJECT_REACTIONS_ES = {
+    'Cocina':                      'Una cocina, excelente.',
+    'Closet':                      'Un closet, perfecto.',
+    'Cocina + closet':             'Cocina y closet juntos, mejor precio en paquete.',
+    'Carpintería para obra nueva': 'Obra nueva, perfecto — lo manejamos desde el principio.',
+  };
+  const PROJECT_REACTIONS_EN = {
+    'Kitchen':                         'A kitchen, great choice.',
+    'Closet':                          'A closet, perfect.',
+    'Kitchen + Closet':                'Kitchen and closet together — better price as a package.',
+    'Carpentry for new construction':  'New construction, perfect — we handle it from the start.',
+  };
+
   const STEPS = lang === 'en' ? [
-    { key: 'name',     type: 'text',  ph: 'Your full name...',         q: 'Hi, welcome to Doig Woodwork. Just 6 quick questions to get your quote started. What\'s your name?' },
-    { key: 'phone',    type: 'phone', ph: 'WhatsApp number...',        q: 'Nice to meet you, {name}. What\'s your WhatsApp number? We\'ll send your quote there.' },
-    { key: 'email',    type: 'text',  ph: 'your@email.com',            q: 'Got it. What\'s your email? We\'ll use it to send your appointment details.' },
-    { key: 'city',     type: 'chips', ph: 'Or type your city...',      q: 'Perfect. What city is your project in?',
-      chips: ['Tijuana', 'Rosarito', 'Ensenada', 'San Diego', 'Mexicali', 'Other'] },
-    { key: 'project',  type: 'chips', ph: '',                          q: 'What are you looking to quote?',
-      chips: ['Kitchen', 'Closet', 'Kitchen + Closet', 'Carpentry for new construction'] },
-    { key: 'timeline', type: 'chips', ph: '',                          q: 'When are you thinking of starting?',
-      chips: ['As soon as possible', 'In 1–3 months', 'In 3–6 months', 'Just exploring options'] },
+    {
+      key: 'name', type: 'text', ph: 'Your full name...',
+      q: "Hi, I'm Alfonso and I'll help you with your quote — just a couple of quick questions. What's your name?",
+      react: () => null,
+    },
+    {
+      key: 'phone', type: 'phone', ph: 'WhatsApp number...',
+      q: (ans) => `Hi ${ans.name}, nice to meet you. What's your WhatsApp number? I'll send the quote there when it's ready.`,
+      react: () => null,
+    },
+    {
+      key: 'city', type: 'chips', ph: 'Or type your city...', chips: ['Tijuana','Rosarito','Ensenada','San Diego','Mexicali','Other'],
+      q: () => "Got it, I have it noted. What city is your project in?",
+      react: () => null,
+    },
+    {
+      key: 'project', type: 'chips', ph: '', chips: ['Kitchen','Closet','Kitchen + Closet','Carpentry for new construction'],
+      q: (ans) => `${CITY_REACTIONS_EN[ans.city] || 'Perfect.'} What are you looking to quote?`,
+      react: () => null,
+    },
+    {
+      key: 'timeline', type: 'chips', ph: '',chips: ['As soon as possible','In 1–3 months','In 3–6 months','Just exploring options'],
+      q: (ans) => `${PROJECT_REACTIONS_EN[ans.project] || 'Perfect.'} When are you thinking of starting?`,
+      react: () => null,
+    },
+    {
+      key: 'email', type: 'text', ph: 'your@email.com',
+      q: (ans) => `Almost done ${ans.name} — can you share your email? We use it to confirm your appointment.`,
+      react: () => null,
+    },
   ] : [
-    { key: 'name',     type: 'text',  ph: 'Tu nombre completo...',     q: 'Hola, bienvenido a Doig Woodwork. Son solo 6 preguntas rápidas para encaminarte a tu cotización. ¿Cómo te llamas?' },
-    { key: 'phone',    type: 'phone', ph: 'Número de WhatsApp...',     q: 'Mucho gusto, {name}. ¿Cuál es tu número de WhatsApp? Ahí te enviaremos tu cotización.' },
-    { key: 'email',    type: 'text',  ph: 'tu@correo.com',             q: 'Perfecto. ¿Cuál es tu correo? Lo usamos para enviarte los detalles de tu cita.' },
-    { key: 'city',     type: 'chips', ph: 'O escribe tu ciudad...',    q: 'Perfecto. ¿Para qué ciudad estás cotizando?',
-      chips: ['Tijuana', 'Rosarito', 'Ensenada', 'San Diego', 'Mexicali', 'Otra'] },
-    { key: 'project',  type: 'chips', ph: '',                          q: '¿Qué trabajo te interesa cotizar?',
-      chips: ['Cocina', 'Closet', 'Cocina + closet', 'Carpintería para obra nueva'] },
-    { key: 'timeline', type: 'chips', ph: '',                          q: '¿Cuándo estás pensando en iniciar?',
-      chips: ['Lo antes posible', 'En 1–3 meses', 'En 3–6 meses', 'Solo explorando opciones'] },
+    {
+      key: 'name', type: 'text', ph: 'Tu nombre completo...',
+      q: () => "Hola, yo me llamo Alfonso y te ayudaré con tu cotización. ¿Cómo te llamas?",
+      react: () => null,
+    },
+    {
+      key: 'phone', type: 'phone', ph: 'Número de WhatsApp...',
+      q: (ans) => `Hola ${ans.name}, qué gusto. ¿Cuál es tu número de WhatsApp? Ahí te mando la cotización cuando esté lista.`,
+      react: () => null,
+    },
+    {
+      key: 'city', type: 'chips', ph: 'O escribe tu ciudad...', chips: ['Tijuana','Rosarito','Ensenada','San Diego','Mexicali','Otra'],
+      q: () => "Listo, ya lo tengo anotado. ¿Para qué ciudad es el proyecto?",
+      react: () => null,
+    },
+    {
+      key: 'project', type: 'chips', ph: '', chips: ['Cocina','Closet','Cocina + closet','Carpintería para obra nueva'],
+      q: (ans) => `${CITY_REACTIONS_ES[ans.city] || 'Perfecto.'} ¿Qué trabajo te interesa cotizar?`,
+      react: () => null,
+    },
+    {
+      key: 'timeline', type: 'chips', ph: '', chips: ['Lo antes posible','En 1–3 meses','En 3–6 meses','Solo explorando opciones'],
+      q: (ans) => `${PROJECT_REACTIONS_ES[ans.project] || 'Perfecto.'} ¿Cuándo estás pensando en iniciar?`,
+      react: () => null,
+    },
+    {
+      key: 'email', type: 'text', ph: 'tu@correo.com',
+      q: (ans) => `Casi listo ${ans.name} — ¿me compartes tu correo? Lo usamos para confirmarte la cita.`,
+      react: () => null,
+    },
   ];
 
   const TRUST = lang === 'en'
@@ -186,7 +257,8 @@ function ContactoPage() {
 
   React.useEffect(() => {
     const timer = setTimeout(async () => {
-      await pushBot(STEPS[0].q);
+      const q0 = STEPS[0].q;
+      await pushBot(typeof q0 === 'function' ? q0({}) : q0);
       setStep(0);
       setBusy(false);
       setHeaderStatus(lang === 'en' ? 'Usually replies within 24h' : 'Responde en menos de 24 hrs');
@@ -250,16 +322,17 @@ function ContactoPage() {
 
     const nextStep = currentStep + 1;
     if (nextStep < STEPS.length) {
-      const q = STEPS[nextStep].q.replace('{name}', newAnswers.name || '');
+      const qRaw = STEPS[nextStep].q;
+      const q = typeof qRaw === 'function' ? qRaw(newAnswers) : qRaw;
       await pushBot(q);
       setStep(nextStep);
     } else {
       const finMsg1 = lang === 'en'
-        ? `Done ${newAnswers.name || ''}! We have everything we need 👌`
-        : `Listo ${newAnswers.name || ''}! Ya tenemos todo lo que necesitamos 👌`;
+        ? `That's everything ${newAnswers.name} 👌 We'll be in touch soon.`
+        : `¡Listo ${newAnswers.name}! Ya tengo todo lo que necesito 👌`;
       const finMsg2 = lang === 'en'
-        ? `Our team will reach out to ${newAnswers.phone} to confirm your appointment. You'll also receive a confirmation email at ${newAnswers.email}.`
-        : `Nuestro equipo te va a escribir al ${newAnswers.phone} para confirmar tu cita. También te llegará un correo a ${newAnswers.email} con los detalles.`;
+        ? `We'll write to you at ${newAnswers.phone} to schedule your quote visit. You'll also get a confirmation at ${newAnswers.email}.`
+        : `Te escribimos al ${newAnswers.phone} para agendar tu visita de cotización. También te llegará una confirmación a ${newAnswers.email}.`;
       await pushBot(finMsg1);
       await new Promise(r => setTimeout(r, 350));
       await pushBot(finMsg2);
