@@ -5,5 +5,7 @@ uploads/
 scraps/
 *.log
 _debug_*
+.env
+.env.local
 
 .vercel

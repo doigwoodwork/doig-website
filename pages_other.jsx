@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { useLang, useT, useRoute, Img, WAIcon, CTABlock } from './components.jsx'
 import { PROJECTS } from './data.jsx'
 import { SEO } from './SEO.jsx'
+import { supabase } from './lib/supabase.js'
 
 function TestimoniosPage() {
   const t = useT();
@@ -117,6 +118,11 @@ function FaqPage() {
 // El destino del correo se configura al registrar la key en web3forms.com con doigwoodwork@gmail.com
 const WEB3FORMS_KEY = 'c5559ddd-0463-4c7d-8247-336939a5a22d';
 
+const COUNTRY_CODE_MAP = {
+  '+52': 'México',
+  '+1':  'USA',
+};
+
 function ContactoPage() {
   const t = useT();
   const { lang } = useLang();
@@ -133,14 +139,44 @@ function ContactoPage() {
     setErrorMsg(null);
     const form = e.currentTarget;
     const fd = new FormData(form);
+    const name = fd.get('name');
+    const email = fd.get('email');
     const phoneNum = fd.get('phone');
+    const city = fd.get('city');
+    const message = fd.get('message');
+    const fullPhone = phoneNum ? `${countryCode} ${phoneNum}` : null;
+
     if (phoneNum) {
-      fd.set('phone', countryCode + ' ' + phoneNum);
+      fd.set('phone', fullPhone);
     }
     fd.append('access_key', WEB3FORMS_KEY);
     fd.append('subject', 'Nueva cotización desde doigwoodwork.com');
     fd.append('from_name', 'Doig Woodwork — Web');
     fd.append('tier', tier || 'No especificado');
+
+    // Insert into Supabase ERP (fire and forget — don't block on it)
+    const lead = {
+      opportunity_name: `${name} - Web`,
+      contact_name: name,
+      email: email,
+      phone: fullPhone,
+      city: city || null,
+      country: COUNTRY_CODE_MAP[countryCode] ?? countryCode,
+      stage: 'nuevo',
+      lead_type: 'lead',
+      source: 'website_contact_form',
+      properties: {
+        interest_type: 'Cocina',
+        estilo_puertas: tier || null,
+        initial_message: message || null,
+        lang: lang,
+      },
+      is_legacy_migration: false,
+    };
+    supabase.from('leads').insert(lead).then(({ error }) => {
+      if (error) console.error('Lead insert error:', error);
+    });
+
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
