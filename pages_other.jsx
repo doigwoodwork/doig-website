@@ -300,12 +300,14 @@ function ContactoPage() {
           <div className="eyebrow" style={{ marginBottom: 24 }}>
             {lang === 'en' ? '— Quote' : '— Cotización'}
           </div>
-          <h1 className="display-xl" style={{ margin: 0 }}>
-            {lang === 'en' ? 'Schedule your quote.' : 'Agenda tu cotización.'}
+          <h1 style={{ margin: 0, lineHeight: 1.05, letterSpacing: '-0.02em' }}>
+            <span className="display-xl" style={{ display: 'block', color: 'var(--ink)' }}>
+              {lang === 'en' ? 'Schedule your quote,' : 'Agenda tu cotización,'}
+            </span>
+            <span className="display-s" style={{ display: 'block', fontStyle: 'italic', color: 'var(--walnut)', marginTop: 'var(--s-2)' }}>
+              {lang === 'en' ? 'at home or at our office.' : 'a domicilio o en nuestras oficinas.'}
+            </span>
           </h1>
-          <p className="display-s" style={{ margin: '4px 0 0', color: 'var(--ink-60)', fontStyle: 'italic' }}>
-            {lang === 'en' ? 'At home or at our office.' : 'A domicilio o en nuestras oficinas.'}
-          </p>
           <p className="lead" style={{ marginTop: 'var(--s-5)', maxWidth: '52ch' }}>
             {lang === 'en'
               ? 'We visit your space, take measurements, and present a proposal designed for you — no commitment.'
