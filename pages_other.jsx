@@ -281,7 +281,7 @@ function ContactoPage() {
 
   async function upsertLead(partial) {
     try {
-      const payload = {
+      await supabase.from('leads').insert({
         opportunity_name: `${partial.name || 'Lead'} - Chat Web`,
         contact_name: partial.name || null,
         phone: partial.phone || null,
@@ -295,16 +295,12 @@ function ContactoPage() {
           timeline: partial.timeline || null,
           lang,
           chat_session: sessionId.current,
-          completion: Object.keys(partial).length + '/6',
+          completion: `${Object.keys(partial).length}/6`,
         },
         is_legacy_migration: false,
-      };
-      await supabase.from('leads').upsert(payload, {
-        onConflict: 'properties->chat_session',
-        ignoreDuplicates: false,
       });
     } catch (e) {
-      console.error('Lead upsert error:', e);
+      console.error('Lead insert error:', e);
     }
   }
 
@@ -339,7 +335,7 @@ function ContactoPage() {
       setDone(true);
       setHeaderStatus(lang === 'en' ? 'Request received' : 'Solicitud recibida');
 
-      await supabase.from('leads').upsert({
+      await supabase.from('leads').insert({
         opportunity_name: `${newAnswers.name} - Chat Web`,
         contact_name: newAnswers.name,
         phone: newAnswers.phone,
@@ -356,7 +352,7 @@ function ContactoPage() {
           completion: '6/6',
         },
         is_legacy_migration: false,
-      }, { onConflict: 'properties->chat_session', ignoreDuplicates: false });
+      });
     }
   }
 
