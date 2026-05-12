@@ -314,7 +314,9 @@ function ContactoPage() {
     setPhoneNum('');
     setBusy(true);
 
-    await upsertLead(newAnswers);
+    const completedKeys = Object.keys(newAnswers);
+    const shouldSave = completedKeys.includes('phone') || completedKeys.length === STEPS.length;
+    if (shouldSave) await upsertLead(newAnswers);
 
     const nextStep = currentStep + 1;
     if (nextStep < STEPS.length) {
