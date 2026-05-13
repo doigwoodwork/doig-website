@@ -44,7 +44,7 @@ function HomePage() {
               </div>
             </div>
             <div>
-              <div className="img-frame" style={{ aspectRatio: '4/5' }}>
+              <div className="hero-img-wrap">
                 <img
                   src="/images/hero.webp"
                   alt="Cocina integral a la medida fabricada en Tijuana por Doig Woodwork"
