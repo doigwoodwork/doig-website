@@ -314,9 +314,10 @@ function ContactoPage() {
     setPhoneNum('');
     setBusy(true);
 
+    // Guardar solo en paso 2 (phone) — captura abandono con datos de contacto
     const completedKeys = Object.keys(newAnswers);
-    const shouldSave = completedKeys.includes('phone') || completedKeys.length === STEPS.length;
-    if (shouldSave) await upsertLead(newAnswers);
+    const isPhoneStep = newAnswers.phone && completedKeys.length === 2;
+    if (isPhoneStep) await upsertLead(newAnswers);
 
     const nextStep = currentStep + 1;
     if (nextStep < STEPS.length) {
