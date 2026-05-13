@@ -23,7 +23,7 @@ function HomePage() {
       {/* HERO */}
       <section className="hero">
         <div className="page">
-          <div style={{ marginBottom: 'var(--s-6)' }}>
+          <div style={{ marginBottom: 'var(--s-4)' }}>
             <span className="eyebrow">{t.hero.eyebrow}</span>
           </div>
           <div className="hero-grid">
@@ -33,8 +33,8 @@ function HomePage() {
                 <span className="sub-line"><em>{t.hero.line2}</em></span>
                 <span className="sub-line">{t.hero.line3}</span>
               </h1>
-              <p className="lead" style={{ marginTop: 32, maxWidth: '52ch' }}>{t.hero.sub}</p>
-              <div style={{ display: 'flex', gap: 12, marginTop: 40, flexWrap: 'wrap' }}>
+              <p className="lead" style={{ marginTop: 20, maxWidth: '52ch' }}>{t.hero.sub}</p>
+              <div style={{ display: 'flex', gap: 12, marginTop: 24, flexWrap: 'wrap' }}>
                 <button className="btn btn-primary btn-lg" onClick={() => go('contacto')}>
                   {t.hero.primary} <span className="arrow">→</span>
                 </button>
