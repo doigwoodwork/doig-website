@@ -1283,6 +1283,18 @@ button {
   gap: var(--s-8);
   align-items: start;
 }
+
+/* Proceso — video grid */
+.proceso-video-grid {
+  grid-template-columns: 1fr 1.4fr;
+}
+
+@media (max-width: 900px) {
+  .proceso-video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .contacto-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
