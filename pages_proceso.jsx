@@ -1,7 +1,8 @@
 // pages_proceso.jsx — Process detail
 
 import React from 'react'
-import { useLang, useT, useRoute, SectionHeader, CTABlock } from './components.jsx'
+import { Helmet } from 'react-helmet-async'
+import { useLang, useT, useRoute, SectionHeader, CTABlock, pathFor } from './components.jsx'
 import { SEO } from './SEO.jsx'
 
 function ProcesoPage() {
@@ -9,20 +10,29 @@ function ProcesoPage() {
   const { lang } = useLang();
   const { go } = useRoute();
 
-  // Cargar script de Instagram para embeds
-  React.useEffect(() => {
-    if (window.instgrm) {
-      window.instgrm.Embeds.process();
-      return;
-    }
-    const script = document.createElement('script');
-    script.src = 'https://www.instagram.com/embed.js';
-    script.async = true;
-    script.onload = () => {
-      if (window.instgrm) window.instgrm.Embeds.process();
-    };
-    document.body.appendChild(script);
-  }, []);
+  const videoTitle = lang === 'en'
+    ? 'How to quote a custom kitchen in Tijuana — Doig Woodwork'
+    : 'Cómo cotizar una cocina integral a medida en Tijuana — Doig Woodwork';
+  const videoDescription = lang === 'en'
+    ? 'The full quoting process in under 60 seconds: home visit, measurements, 3D design, fabrication, and installation.'
+    : 'Todo el proceso de cotización en menos de 60 segundos: visita a domicilio, medidas, diseño 3D, fabricación e instalación.';
+  const videoSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: videoTitle,
+    description: videoDescription,
+    thumbnailUrl: 'https://www.doigwoodwork.com/images/og-image.jpg',
+    contentUrl: 'https://www.doigwoodwork.com/videos/proceso-cotizar.mp4',
+    uploadDate: '2026-05-14',
+    duration: 'PT1M',
+    inLanguage: lang === 'en' ? 'en' : 'es-MX',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Doig Woodwork',
+      logo: { '@type': 'ImageObject', url: 'https://www.doigwoodwork.com/images/favicon.png' },
+    },
+  };
+  const videoJson = JSON.stringify(videoSchema).replace(/</g, '\\u003c');
 
   return (
     <div className="page-enter">
@@ -32,6 +42,9 @@ function ProcesoPage() {
         canonical={lang === 'en' ? '/en/proceso' : '/proceso'}
         lang={lang}
       />
+      <Helmet>
+        <script type="application/ld+json">{videoJson}</script>
+      </Helmet>
       <section className="section">
         <div className="page">
           <div className="eyebrow" style={{ marginBottom: 24 }}>{t.proceso.eyebrow}</div>
@@ -53,23 +66,29 @@ function ProcesoPage() {
             overflow: 'hidden',
           }} className="proceso-video-grid">
 
-            {/* Instagram embed */}
+            {/* Self-hosted video — plays inline, no redirect to Instagram */}
             <div style={{ background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 'var(--s-4)' }}>
-              <blockquote
-                className="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/reel/DKdUTngM9F_/"
-                data-instgrm-version="14"
+              <video
+                src="/videos/proceso-cotizar.mp4"
+                controls
+                playsInline
+                preload="metadata"
+                aria-label={videoTitle}
                 style={{
-                  background: 'white',
-                  border: 'none',
-                  borderRadius: 3,
-                  margin: 0,
-                  padding: 0,
-                  width: 320,
-                  minWidth: 320,
+                  width: '100%',
                   maxWidth: 320,
+                  aspectRatio: '9 / 16',
+                  background: '#000',
+                  display: 'block',
+                  borderRadius: 3,
                 }}
-              />
+              >
+                <p style={{ color: 'var(--bone)' }}>
+                  {lang === 'en'
+                    ? 'Your browser does not support the video tag.'
+                    : 'Tu navegador no soporta este video.'}
+                </p>
+              </video>
             </div>
 
             {/* Copy */}
@@ -107,13 +126,14 @@ function ProcesoPage() {
                 ))}
               </div>
 
-              <button
+              <a
                 className="btn btn-primary"
-                onClick={() => go('contacto')}
+                href={pathFor('contacto', lang)}
+                onClick={(e) => { e.preventDefault(); go('contacto'); }}
                 style={{ alignSelf: 'flex-start' }}
               >
                 {lang === 'en' ? 'Start my quote →' : 'Iniciar mi cotización →'}
-              </button>
+              </a>
 
               <p className="small" style={{ marginTop: 'var(--s-3)', color: 'var(--ink-60)', fontStyle: 'italic' }}>
                 {lang === 'en'
