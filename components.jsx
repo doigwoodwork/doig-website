@@ -151,6 +151,7 @@ export function Footer() {
               <li><a href={pathFor('closets', lang)} onClick={(e) => { e.preventDefault(); go('closets'); }}>{t.nav.closets}</a></li>
               <li><a href={pathFor('proceso', lang)} onClick={(e) => { e.preventDefault(); go('proceso'); }}>{t.nav.proceso}</a></li>
               <li><a href={pathFor('testimonios', lang)} onClick={(e) => { e.preventDefault(); go('testimonios'); }}>{t.nav.testimonios}</a></li>
+              <li><a href={pathFor('faq', lang)} onClick={(e) => { e.preventDefault(); go('faq'); }}>{t.nav.faq}</a></li>
               <li><a href={pathFor('contacto', lang)} onClick={(e) => { e.preventDefault(); go('contacto'); }}>{t.nav.contacto}</a></li>
             </ul>
           </div>
