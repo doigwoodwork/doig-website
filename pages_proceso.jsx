@@ -58,30 +58,17 @@ function ProcesoPage() {
       {/* VIDEO SECTION — Cómo cotizar */}
       <section style={{ paddingBottom: 'var(--s-8)' }}>
         <div className="page">
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1.4fr',
-            border: '1px solid var(--line)',
-            background: 'var(--bone-50)',
-            overflow: 'hidden',
-          }} className="proceso-video-grid">
+          <div className="proceso-video-grid">
 
             {/* Self-hosted video — plays inline, no redirect to Instagram */}
-            <div style={{ background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 'var(--s-4)' }}>
+            <div className="proceso-video-wrap">
               <video
+                className="proceso-video"
                 src="/videos/proceso-cotizar.mp4"
                 controls
                 playsInline
                 preload="metadata"
                 aria-label={videoTitle}
-                style={{
-                  width: '100%',
-                  maxWidth: 320,
-                  aspectRatio: '9 / 16',
-                  background: '#000',
-                  display: 'block',
-                  borderRadius: 3,
-                }}
               >
                 <p style={{ color: 'var(--bone)' }}>
                   {lang === 'en'
@@ -92,7 +79,7 @@ function ProcesoPage() {
             </div>
 
             {/* Copy */}
-            <div style={{ padding: 'var(--s-6) var(--s-7)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <div className="proceso-video-copy">
               <div className="eyebrow" style={{ color: 'var(--walnut)', marginBottom: 'var(--s-3)' }}>
                 {lang === 'en' ? '— In 60 seconds' : '— En 60 segundos'}
               </div>
