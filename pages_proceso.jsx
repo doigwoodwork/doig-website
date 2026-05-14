@@ -54,29 +54,30 @@ function ProcesoPage() {
           }} className="proceso-video-grid">
 
             {/* Instagram embed */}
-            <div style={{ background: 'var(--ink)', minHeight: 320, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+            <div style={{ background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 'var(--s-4)' }}>
               <blockquote
                 className="instagram-media"
                 data-instgrm-permalink="https://www.instagram.com/reel/DKdUTngM9F_/"
                 data-instgrm-version="14"
                 style={{
-                  background: 'var(--ink)',
+                  background: 'white',
                   border: 'none',
-                  borderRadius: 0,
+                  borderRadius: 3,
                   margin: 0,
                   padding: 0,
-                  width: '100%',
-                  minWidth: 0,
+                  width: 320,
+                  minWidth: 320,
+                  maxWidth: 320,
                 }}
               />
             </div>
 
             {/* Copy */}
-            <div style={{ padding: 'var(--s-7) var(--s-8)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <div style={{ padding: 'var(--s-6) var(--s-7)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <div className="eyebrow" style={{ color: 'var(--walnut)', marginBottom: 'var(--s-3)' }}>
                 {lang === 'en' ? '— In 60 seconds' : '— En 60 segundos'}
               </div>
-              <h2 className="display-m" style={{ margin: '0 0 var(--s-4)' }}>
+              <h2 className="display-s" style={{ margin: '0 0 var(--s-4)', fontSize: 'clamp(18px, 2.5vw, 28px)' }}>
                 {lang === 'en'
                   ? 'How to quote a custom kitchen in Tijuana?'
                   : '¿Cómo cotizar una cocina integral a medida en Tijuana?'

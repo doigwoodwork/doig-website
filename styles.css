@@ -1286,12 +1286,16 @@ button {
 
 /* Proceso — video grid */
 .proceso-video-grid {
-  grid-template-columns: 1fr 1.4fr;
+  grid-template-columns: 360px 1fr;
+  align-items: center;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 860px) {
   .proceso-video-grid {
     grid-template-columns: 1fr;
+  }
+  .proceso-video-grid > div:first-child {
+    padding: var(--s-5) var(--s-5) 0;
   }
 }
 
