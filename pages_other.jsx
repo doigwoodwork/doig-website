@@ -1,6 +1,7 @@
 // pages_other.jsx — Testimonios, FAQ, Contacto
 
 import React, { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { useLang, useT, useRoute, Img, WAIcon, CTABlock } from './components.jsx'
 import { PROJECTS } from './data.jsx'
 import { SEO } from './SEO.jsx'
@@ -83,6 +84,18 @@ function FaqPage() {
   const t = useT();
   const { lang } = useLang();
   const [open, setOpen] = useState(0);
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: t.faq.items.map(it => ({
+      '@type': 'Question',
+      name: it.q,
+      acceptedAnswer: { '@type': 'Answer', text: it.a },
+    })),
+  };
+  const faqJson = JSON.stringify(faqSchema).replace(/</g, '\\u003c');
+
   return (
     <div className="page-enter">
       <SEO
@@ -91,6 +104,9 @@ function FaqPage() {
         canonical={lang === 'en' ? '/en/faq' : '/faq'}
         lang={lang}
       />
+      <Helmet>
+        <script type="application/ld+json">{faqJson}</script>
+      </Helmet>
       <section className="section">
         <div className="page">
           <div className="eyebrow" style={{ marginBottom: 24 }}>{t.faq.eyebrow}</div>

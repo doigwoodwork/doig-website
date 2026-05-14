@@ -108,10 +108,17 @@ export default function ClosetsPage() {
             </span>
           </div>
           <h1 className="display-xl" style={{ margin: 0, maxWidth: '16ch' }}>
-            {lang === 'en'
-              ? <>Closets built <em style={{ color: 'var(--walnut)' }}>for how you live.</em></>
-              : <>Closets hechos <em style={{ color: 'var(--walnut)' }}>para como vives.</em></>
-            }
+            <span className="sr-only">
+              {lang === 'en'
+                ? 'Custom Closets in Tijuana & San Diego — Walk-In, Built-In and Kids’ Closets'
+                : 'Closets a Medida en Tijuana y San Diego — Walk-In, Empotrados e Infantiles'}
+            </span>
+            <span aria-hidden="true">
+              {lang === 'en'
+                ? <>Closets built <em style={{ color: 'var(--walnut)' }}>for how you live.</em></>
+                : <>Closets hechos <em style={{ color: 'var(--walnut)' }}>para como vives.</em></>
+              }
+            </span>
           </h1>
           <p className="body-l" style={{ maxWidth: '52ch', marginTop: 'var(--s-5)', color: 'var(--ink-60)' }}>
             {lang === 'en'
@@ -178,7 +185,9 @@ export default function ClosetsPage() {
             </div>
             <Img
               src={active.img || null}
-              alt={`${active.name} a medida en Tijuana`}
+              alt={lang === 'en'
+                ? `${active.name} custom-built in Tijuana by Doig Woodwork`
+                : `${active.name} a medida en Tijuana por Doig Woodwork`}
               aspect="4/3"
               label={active.name}
             />

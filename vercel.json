@@ -3,12 +3,13 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "redirects": [
-    { "source": "/post/:slug*", "destination": "/", "permanent": true },
-    { "source": "/en/product-page/:slug*", "destination": "/cocinas", "permanent": true },
+    { "source": "/post/:slug*", "destination": "/cocinas", "permanent": true },
+    { "source": "/en/post/:slug*", "destination": "/en/cocinas", "permanent": true },
+    { "source": "/en/product-page/:slug*", "destination": "/en/cocinas", "permanent": true },
     { "source": "/product-page/:slug*", "destination": "/cocinas", "permanent": true },
-    { "source": "/en/category/cocinas", "destination": "/cocinas", "permanent": true },
-    { "source": "/en/category/cocinas-infonavit", "destination": "/cocinas", "permanent": true },
-    { "source": "/en/category/:slug*", "destination": "/cocinas", "permanent": true },
+    { "source": "/en/category/cocinas", "destination": "/en/cocinas", "permanent": true },
+    { "source": "/en/category/cocinas-infonavit", "destination": "/en/cocinas", "permanent": true },
+    { "source": "/en/category/:slug*", "destination": "/en/cocinas", "permanent": true },
     { "source": "/category/:slug*", "destination": "/cocinas", "permanent": true }
   ],
   "rewrites": [

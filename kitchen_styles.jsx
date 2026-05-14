@@ -148,7 +148,9 @@ function KitchenStyles({ lang = 'es', go }) {
               <img
                 key={current.id + '-' + imgIdx}
                 src={current.images[imgIdx]}
-                alt={current.name}
+                alt={lang === 'en'
+                  ? `${current.name} kitchen — custom-built in Tijuana by Doig Woodwork`
+                  : `${current.name} — cocina a medida fabricada en Tijuana por Doig Woodwork`}
                 loading="lazy"
                 width="800"
                 height="600"
