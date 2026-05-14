@@ -42,7 +42,7 @@ async function run() {
       // Inyectar helmet tags justo antes de </head>
       let output = template.replace(
         '</head>',
-        `${helmet.title}\n${helmet.meta}\n${helmet.link}\n</head>`
+        `${helmet.title}\n${helmet.meta}\n${helmet.link}\n${helmet.script}\n</head>`
       )
       // Inyectar HTML renderizado en el div root
       output = output.replace(

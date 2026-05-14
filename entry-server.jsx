@@ -69,6 +69,7 @@ export function render(route, lang) {
       title: helmet?.title?.toString() || '',
       meta: helmet?.meta?.toString() || '',
       link: helmet?.link?.toString() || '',
+      script: helmet?.script?.toString() || '',
     }
   }
 }

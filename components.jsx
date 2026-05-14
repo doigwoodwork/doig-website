@@ -15,6 +15,14 @@ export const useT = () => {
 export const RouteCtx = createContext({ route: 'home', go: () => {} });
 export const useRoute = () => useContext(RouteCtx);
 
+// Build a real URL for a route in the current language — used as <a href>
+// so crawlers see real links and users can right-click → open in new tab.
+export function pathFor(route, lang) {
+  const base = lang === 'en' ? '/en' : '';
+  if (route === 'home') return base || '/';
+  return `${base}/${route}`;
+}
+
 // ============== Nav ==============
 export function Nav() {
   const { lang, setLang } = useLang();
@@ -38,7 +46,11 @@ export function Nav() {
   return (
     <nav className={`nav ${mobileOpen ? 'nav-mobile-open' : ''}`}>
       <div className="nav-inner">
-        <a className="brand" onClick={(e) => { e.preventDefault(); handleNav('home'); }} href="#">
+        <a
+          className="brand"
+          href={pathFor('home', lang)}
+          onClick={(e) => { e.preventDefault(); handleNav('home'); }}
+        >
           <span className="brand-wm">Doig</span>
           <span className="brand-tag">Woodwork · {t.tagline}</span>
         </a>
@@ -46,7 +58,7 @@ export function Nav() {
           {items.map(it => (
             <li key={it.k}>
               <a
-                href={`#${it.k}`}
+                href={pathFor(it.k, lang)}
                 onClick={(e) => { e.preventDefault(); go(it.k); }}
                 className={route === it.k ? 'active' : ''}
               >{it.l}</a>
@@ -59,9 +71,13 @@ export function Nav() {
             <span>/</span>
             <span className={lang === 'en' ? 'on' : ''}>EN</span>
           </button>
-          <button className="btn btn-primary btn-sm" onClick={() => go('contacto')}>
+          <a
+            className="btn btn-primary btn-sm"
+            href={pathFor('contacto', lang)}
+            onClick={(e) => { e.preventDefault(); go('contacto'); }}
+          >
             {t.nav.contacto} <span className="arrow">→</span>
-          </button>
+          </a>
         </div>
 
         {/* Mobile hamburger button */}
@@ -83,7 +99,7 @@ export function Nav() {
           {items.map(it => (
             <li key={it.k}>
               <a
-                href={`#${it.k}`}
+                href={pathFor(it.k, lang)}
                 onClick={(e) => { e.preventDefault(); handleNav(it.k); }}
                 className={route === it.k ? 'active' : ''}
               >{it.l}</a>
@@ -96,9 +112,13 @@ export function Nav() {
             <span>/</span>
             <span className={lang === 'en' ? 'on' : ''}>EN</span>
           </button>
-          <button className="btn btn-primary" onClick={() => handleNav('contacto')}>
+          <a
+            className="btn btn-primary"
+            href={pathFor('contacto', lang)}
+            onClick={(e) => { e.preventDefault(); handleNav('contacto'); }}
+          >
             {t.nav.contacto} <span className="arrow">→</span>
-          </button>
+          </a>
         </div>
       </div>
     </nav>
@@ -108,6 +128,7 @@ export function Nav() {
 // ============== Footer ==============
 export function Footer() {
   const t = useT();
+  const { lang } = useLang();
   const { go } = useRoute();
   return (
     <footer className="footer">
@@ -125,11 +146,12 @@ export function Footer() {
           <div>
             <h3>{t.footer.nav}</h3>
             <ul>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); go('home'); }}>{t.nav.home}</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); go('cocinas'); }}>{t.nav.cocinas}</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); go('proceso'); }}>{t.nav.proceso}</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); go('testimonios'); }}>{t.nav.testimonios}</a></li>
-              {/* <li><a href="#" onClick={(e) => { e.preventDefault(); go('faq'); }}>{t.nav.faq}</a></li> */}
+              <li><a href={pathFor('home', lang)} onClick={(e) => { e.preventDefault(); go('home'); }}>{t.nav.home}</a></li>
+              <li><a href={pathFor('cocinas', lang)} onClick={(e) => { e.preventDefault(); go('cocinas'); }}>{t.nav.cocinas}</a></li>
+              <li><a href={pathFor('closets', lang)} onClick={(e) => { e.preventDefault(); go('closets'); }}>{t.nav.closets}</a></li>
+              <li><a href={pathFor('proceso', lang)} onClick={(e) => { e.preventDefault(); go('proceso'); }}>{t.nav.proceso}</a></li>
+              <li><a href={pathFor('testimonios', lang)} onClick={(e) => { e.preventDefault(); go('testimonios'); }}>{t.nav.testimonios}</a></li>
+              <li><a href={pathFor('contacto', lang)} onClick={(e) => { e.preventDefault(); go('contacto'); }}>{t.nav.contacto}</a></li>
             </ul>
           </div>
           <div>
@@ -204,6 +226,7 @@ export const WAIcon = () => (
 // ============== CTA block ==============
 export function CTABlock() {
   const t = useT();
+  const { lang } = useLang();
   const { go } = useRoute();
   return (
     <section className="section" style={{ background: 'var(--ink)', color: 'var(--bone)', margin: '0' }}>
@@ -214,9 +237,14 @@ export function CTABlock() {
             <h2 className="display-l" style={{ margin: 0, color: 'var(--bone)' }}>{t.cta.headline}</h2>
             <p className="body-l" style={{ color: 'var(--bone-200)', marginTop: 24, maxWidth: '48ch' }}>{t.cta.body}</p>
             <div style={{ display: 'flex', gap: 12, marginTop: 32, flexWrap: 'wrap' }}>
-              <button className="btn btn-primary btn-lg" onClick={() => go('contacto')} style={{ background: 'var(--bone)', color: 'var(--ink)' }}>
+              <a
+                className="btn btn-primary btn-lg"
+                href={pathFor('contacto', lang)}
+                onClick={(e) => { e.preventDefault(); go('contacto'); }}
+                style={{ background: 'var(--bone)', color: 'var(--ink)' }}
+              >
                 {t.cta.primary} <span className="arrow">→</span>
-              </button>
+              </a>
             </div>
           </div>
           <div className="cta-doig-text" style={{

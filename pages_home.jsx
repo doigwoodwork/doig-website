@@ -29,9 +29,14 @@ function HomePage() {
           <div className="hero-grid">
             <div>
               <h1 className="hero-title">
-                <span className="sub-line">{t.hero.line1}</span>
-                <span className="sub-line"><em>{t.hero.line2}</em></span>
-                <span className="sub-line">{t.hero.line3}</span>
+                <span className="sr-only">
+                  {lang === 'en'
+                    ? 'Custom Kitchens in Tijuana — Design, Build & Install for Baja California and San Diego'
+                    : 'Cocinas a Medida en Tijuana — Diseño, Fabricación e Instalación para Baja California y San Diego'}
+                </span>
+                <span className="sub-line" aria-hidden="true">{t.hero.line1}</span>
+                <span className="sub-line" aria-hidden="true"><em>{t.hero.line2}</em></span>
+                <span className="sub-line" aria-hidden="true">{t.hero.line3}</span>
               </h1>
               <p className="lead" style={{ marginTop: 20, maxWidth: '52ch' }}>{t.hero.sub}</p>
               <div style={{ display: 'flex', gap: 12, marginTop: 24, flexWrap: 'wrap' }}>
@@ -47,7 +52,9 @@ function HomePage() {
               <div className="hero-img-wrap">
                 <img
                   src="/images/hero.webp"
-                  alt="Cocina integral a la medida fabricada en Tijuana por Doig Woodwork"
+                  alt={lang === 'en'
+                    ? 'Custom kitchen built in Tijuana by Doig Woodwork — Liso Moderno with mixed oak shaker'
+                    : 'Cocina integral a la medida fabricada en Tijuana por Doig Woodwork — Liso Moderno con encino shaker mixto'}
                   fetchPriority="high"
                   width="800"
                   height="1000"
@@ -121,7 +128,14 @@ function HomePage() {
       <section className="section" style={{ background: 'var(--bone-50)' }}>
         <div className="page">
           <div className="testimonial-grid">
-            <Img src={t.testimonios.list[0].img || PHOTOS.kitchen2} alt={`Cocina a medida en Tijuana — testimonio de ${t.testimonios.list[0].author}`} aspect="3/4" label="Cliente satisfecho Doig Woodwork" />
+            <Img
+              src={t.testimonios.list[0].img || PHOTOS.kitchen2}
+              alt={lang === 'en'
+                ? `Custom kitchen in Tijuana — testimonial from ${t.testimonios.list[0].author}`
+                : `Cocina a medida en Tijuana — testimonio de ${t.testimonios.list[0].author}`}
+              aspect="3/4"
+              label={lang === 'en' ? 'Happy Doig Woodwork client' : 'Cliente satisfecho Doig Woodwork'}
+            />
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <div className="eyebrow" style={{ marginBottom: 24 }}>— Testimonios</div>
               <blockquote style={{

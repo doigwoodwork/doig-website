@@ -155,8 +155,15 @@ function CocinasPage() {
         <div className="page">
           <div className="eyebrow" style={{ marginBottom: 24 }}>{COPY.eyebrow}</div>
           <h1 className="display-xl" style={{ margin: 0, maxWidth: '16ch' }}>
-            {COPY.title1}<br/>
-            {COPY.title2} <em style={{ color: 'var(--walnut)' }}>{COPY.titleEm}</em>
+            <span className="sr-only">
+              {lang === 'en'
+                ? 'Custom Kitchen Cabinets in Tijuana — Modern, Shaker and Inset Styles'
+                : 'Cocinas Integrales a Medida en Tijuana — Estilos Lisa Moderna, Shaker e Inset'}
+            </span>
+            <span aria-hidden="true">
+              {COPY.title1}<br/>
+              {COPY.title2} <em style={{ color: 'var(--walnut)' }}>{COPY.titleEm}</em>
+            </span>
           </h1>
           <div className="cocinas-hero-grid">
             <p className="lead" style={{ maxWidth: '52ch', margin: 0 }}>{COPY.lead}</p>
@@ -205,7 +212,7 @@ function CocinasPage() {
 
       {/* STYLES — alternating layout, full-bleed image on top, editorial content below */}
       {STYLES.map((s, i) => (
-        <StyleSection key={s.id} style={s} copy={COPY} onCTA={() => go && go('contacto')} index={i} />
+        <StyleSection key={s.id} style={s} copy={COPY} onCTA={() => go && go('contacto')} index={i} lang={lang} />
       ))}
 
       <CTABlock />
@@ -213,7 +220,7 @@ function CocinasPage() {
   );
 }
 
-function StyleSection({ style, copy, onCTA, index }) {
+function StyleSection({ style, copy, onCTA, index, lang }) {
   const [mainIdx, setMainIdx] = React.useState(0);
   const isEven = index % 2 === 0;
   const sectionBg = isEven ? 'var(--bone)' : 'var(--bone-50)';
@@ -259,7 +266,9 @@ function StyleSection({ style, copy, onCTA, index }) {
             <img
               key={style.id + '-' + mainIdx}
               src={style.images[mainIdx]}
-              alt={`${style.name} — cocina integral a medida fabricada en Tijuana`}
+              alt={lang === 'en'
+                ? `${style.name} — custom kitchen cabinets built in Tijuana by Doig Woodwork`
+                : `${style.name} — cocina integral a medida fabricada en Tijuana por Doig Woodwork`}
               loading="lazy"
               width="960"
               height="720"
